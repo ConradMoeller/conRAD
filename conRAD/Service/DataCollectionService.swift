@@ -113,7 +113,7 @@ class DataCollectionService {
         startTime = Date()
         df.timeZone = TimeZone.current
         df.dateFormat = "yyyy-MM-dd-HH-mm"
-        logFile = ActivityLogFile(name: "session-" + df.string(from: Date()))
+        logFile = ActivityLogFile(name: "sessions/conRAD-" + df.string(from: Date()))
         df.timeZone = TimeZone(identifier: "UTC")
         df.dateFormat = logDateFormat
         timer = Timer(timeInterval: 1.0, target: self, selector: #selector(log), userInfo: nil, repeats: true)
@@ -144,7 +144,7 @@ class DataCollectionService {
     }
 
     func updateTrainingLimits() {
-        let training = MasterDataRepo.readTrainig()
+        let training = MasterDataRepo.readTraining()
         hrData.setTarget(target: Int(training.hr) ?? 0)
         hrData.setTolerance(tolerance: 10)
         powerData.setTarget(target: Int(training.power) ?? 0)

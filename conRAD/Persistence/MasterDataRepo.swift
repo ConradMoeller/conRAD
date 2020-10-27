@@ -68,6 +68,21 @@ class MasterDataRepo {
         return newBicycle()
     }
 
+    static func readBicycles() -> [Bicycle] {
+        let dir = FileTool.getDir(name: "bicycles")
+        var result = [Bicycle]()
+        do {
+            let content = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil, options: [])
+            for file in content {
+                let id = file.lastPathComponent.replacingOccurrences(of: ".json", with: "")
+                result.append(readBicycle(id: id))
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return result
+    }
+    
     static func writeBicycle(bicycle: Bicycle) {
         let json = try? JSONEncoder().encode(bicycle)
         let filePath = FileTool.getFileURL(name: "bicycles/" + bicycle.id, ext: "json")
@@ -85,11 +100,11 @@ class MasterDataRepo {
         return Training(id: UUID().uuidString, name: "", hr: "0", power: "0", cadence: "0")
     }
     
-    static func readTrainig() -> Training {
-        return readTrainig(id: readSettings().training)
+    static func readTraining() -> Training {
+        return readTraining(id: readSettings().training)
     }
 
-    static func readTrainig(id: String) -> Training {
+    static func readTraining(id: String) -> Training {
         do {
             let input = try Data(contentsOf: FileTool.getFileURL(name: "trainings/" + id, ext: "json"))
             return try JSONDecoder().decode(Training.self, from: input)
@@ -97,6 +112,21 @@ class MasterDataRepo {
             print(error)
         }
         return newTraining()
+    }
+    
+    static func readTrainings() -> [Training] {
+        let dir = FileTool.getDir(name: "trainings")
+        var result = [Training]()
+        do {
+            let content = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil, options: [])
+            for file in content {
+                let id = file.lastPathComponent.replacingOccurrences(of: ".json", with: "")
+                result.append(readTraining(id: id))
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return result
     }
 
     static func writeTraining(training: Training) {

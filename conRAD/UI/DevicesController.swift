@@ -19,6 +19,8 @@ class DevicesViewController: UIViewController {
     @IBOutlet weak var crank2: UITextField!
     @IBOutlet weak var sprockets: UITextField!
 
+    let bicycleList = ListViewNavigation()
+    
     let detail = DeviceViewNavigation()
     let bleKit = BicycleBLEKit()
     var fileName: UITextField?
@@ -30,6 +32,7 @@ class DevicesViewController: UIViewController {
         crank1.delegate = self
         crank2.delegate = self
         sprockets.delegate = self
+        bicycleList.listView.listViewDelegate = self
         UIUtil.applyBoxStyle(view: headerBox)
         readBike()
     }
@@ -63,21 +66,14 @@ class DevicesViewController: UIViewController {
         var bike = MasterDataRepo.newBicycle()
         bike.name = (fileName?.text)!
         MasterDataRepo.writeBicycle(bicycle: bike)
+        var settings = MasterDataRepo.readSettings()
+        settings.bike = bike.id
+        MasterDataRepo.writeSettings(settings: settings)
         readBike()
     }
 
     @IBAction func selectBikePushed(_ sender: Any) {
-        present(getFileBrowser(), animated: true, completion: nil)
-    }
-
-    private func getFileBrowser() -> FileBrowser {
-        let fb = FileBrowser(initialPath: FileTool.getDir(), allowEditing: true, showCancelButton: true)
-        fb.excludesFileExtensions = []
-        //fb.didSelectFile = { (file: FBFile) -> Void in
-            //self.bounds = BoundariesFile(fileName: String(file.displayName.split(separator: ".")[0]))
-            //self.readSettings()
-        //}
-        return fb
+        present(bicycleList, animated: true, completion: nil)
     }
 
     @IBAction func hrDevicePushed(_ sender: Any) {
@@ -169,6 +165,7 @@ class DevicesViewController: UIViewController {
         bike.name = name.text!
         bike.wheelSize = wheelsize.text!
         bike.crank1 = crank1.text!
+        bike.crank2 = crank2.text!
         bike.sprockets = sprockets.text!
         MasterDataRepo.writeBicycle(bicycle: bike)
     }
@@ -185,6 +182,9 @@ extension DevicesViewController: UITextFieldDelegate {
         if isBackSpace == -92 {
             return true
         }
+        if textField == sprockets && string == "," {
+            return true
+        }
         if Int(string) == nil {
             return false
         }
@@ -198,3 +198,23 @@ extension DevicesViewController: UITextFieldDelegate {
     }
 
 }
+
+extension DevicesViewController: ListViewDelegate {
+    
+    func getFileList() -> [(id: String, name: String)] {
+        var result = [(id: String, name: String)]()
+        let bicycles = MasterDataRepo.readBicycles()
+        for bicycle in bicycles {
+            result.append((bicycle.id, bicycle.name))
+        }
+        return result
+    }
+    
+    func setSelectedFile(id: String) {
+        var settings = MasterDataRepo.readSettings()
+        settings.bike = id
+        MasterDataRepo.writeSettings(settings: settings)
+        readBike()
+    }
+}
+

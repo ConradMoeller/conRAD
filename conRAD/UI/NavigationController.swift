@@ -23,15 +23,22 @@ class NavigationViewController: UIViewController {
     let formatter = DateFormatter()
     var timer: Timer!
     var dataCollector = DataCollectionService.getInstance()
-
+    var tileRenderer: MKTileOverlayRenderer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIUtil.applyBoxStyle(view: topBox)
         UIUtil.applyBoxStyle(view: map)
         UIUtil.applyBoxStyle(view: bottomLeftBox)
         UIUtil.applyBoxStyle(view: bottomRightBox)
-
+        
+        let template = "https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=8f5c6811c78046cd958871381565537b"
+        let overlay = MKTileOverlay(urlTemplate: template)
+        overlay.canReplaceMapContent = true
+        map.add(overlay, level: .aboveLabels)
+        tileRenderer = MKTileOverlayRenderer(tileOverlay: overlay)
         map.setUserTrackingMode(.followWithHeading, animated: true)
+        map.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +62,17 @@ class NavigationViewController: UIViewController {
         self.time.text = formatter.string(for: Date(timeIntervalSince1970: dataCollector.getDuration()))
         self.speed.text = "\(String(format: "%.1f", speed * 3.6)) (\(String(format: "%.1f", abs(distance) / abs(t) * 3.6)))"
         self.distance.text = String(format: "%4.2f", distance / 1000)
+        print(map.camera.altitude)
     }
 
+    @IBAction func zoomOutPushed(_ sender: Any) {
+        map.camera.altitude = map.camera.altitude * 2
+    }
+}
+
+extension NavigationViewController: MKMapViewDelegate  {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        return tileRenderer
+    }
 }

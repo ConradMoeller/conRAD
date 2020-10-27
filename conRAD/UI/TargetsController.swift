@@ -36,8 +36,10 @@ class TargetsViewController: UIViewController {
 
     @IBOutlet weak var stravaUpload: UIActivityIndicatorView!
 
+    let trainingsList = ListViewNavigation()
+    
     var dataCollector = DataCollectionService.getInstance()
-
+    
     var btResponseTimer: Timer!
     var i = 0
 
@@ -49,6 +51,7 @@ class TargetsViewController: UIViewController {
         bpmAvg.delegate = self
         wattAvg.delegate = self
         rpmAvg.delegate = self
+        trainingsList.listView.listViewDelegate = self
         readSettings()
 
         UIUtil.applyBoxStyle(view: headerBox)
@@ -56,20 +59,20 @@ class TargetsViewController: UIViewController {
     }
 
     private func getFileBrowser() -> FileBrowser {
-        let fb = FileBrowser(initialPath: FileTool.getDir(), allowEditing: true, showCancelButton: true)
+        let fb = FileBrowser(initialPath: FileTool.getDir(name: "sessions"), allowEditing: true, showCancelButton: true)
         fb.excludesFileExtensions = []
         return fb
     }
 
     private func readSettings() {
-        let training = MasterDataRepo.readTrainig()
+        let training = MasterDataRepo.readTraining()
         bpmAvg.text = training.hr
         wattAvg.text = training.power
         rpmAvg.text = training.cadence
     }
 
     private func writeSettings() {
-        var training = MasterDataRepo.readTrainig()
+        var training = MasterDataRepo.readTraining()
         training.hr = bpmAvg.text!
         training.power = wattAvg.text!
         training.cadence = rpmAvg.text!
@@ -124,11 +127,20 @@ class TargetsViewController: UIViewController {
     }
 
     func handleOK(action: UIAlertAction) {
-        writeSettings()
+        var training = MasterDataRepo.newTraining()
+        training.name = fileName?.text ?? "new training"
+        training.hr = "0"
+        training.cadence = "0"
+        training.power = "0"
+        MasterDataRepo.writeTraining(training: training)
+        var settings = MasterDataRepo.readSettings()
+        settings.training = training.id
+        MasterDataRepo.writeSettings(settings: settings)
+        readSettings()
     }
 
     @IBAction func openFilePushed(_ sender: Any) {
-        present(getFileBrowser(), animated: true, completion: nil)
+        present(trainingsList, animated: true, completion: nil)
     }
 
     @IBAction func switchChanged(_ sender: Any) {
@@ -211,6 +223,10 @@ class TargetsViewController: UIViewController {
         }
     }
 
+    @IBAction func openSessionsFolderPushed(_ sender: Any) {
+        present(getFileBrowser(), animated: true, completion: nil)
+    }
+    
     func selectUpload(strava: Strava) {
         let fb = FileBrowser()
         fb.excludesFilepaths = []
@@ -252,5 +268,24 @@ extension TargetsViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         writeSettings()
         return true
+    }
+}
+
+extension TargetsViewController: ListViewDelegate {
+    
+    func getFileList() -> [(id: String, name: String)] {
+        var result = [(id: String, name: String)]()
+        let trainings = MasterDataRepo.readTrainings()
+        for training in trainings {
+            result.append((training.id, training.name))
+        }
+        return result
+    }
+    
+    func setSelectedFile(id: String) {
+        var settings = MasterDataRepo.readSettings()
+        settings.training = id
+        MasterDataRepo.writeSettings(settings: settings)
+        readSettings()
     }
 }

@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             training.cadence = "90"
             MasterDataRepo.writeTraining(training: training)
         }
+        _ = FileTool.createFolder(name: "sessions")
         ServiceController.startServices()
         return true
     }

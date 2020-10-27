@@ -45,6 +45,12 @@ class FileTool {
         return dir
     }
 
+    static func getDir(name: String) -> URL {
+        let dir = getDir()
+        let file = dir.appendingPathComponent(name)
+        return file
+    }
+    
     static func getFileURL(name: String, ext: String) -> URL {
         let dir = getDir()
         let file = dir.appendingPathComponent(name).appendingPathExtension(ext)
