@@ -62,7 +62,6 @@ class NavigationViewController: UIViewController {
         self.time.text = formatter.string(for: Date(timeIntervalSince1970: dataCollector.getDuration()))
         self.speed.text = "\(String(format: "%.1f", speed * 3.6)) (\(String(format: "%.1f", abs(distance) / abs(t) * 3.6)))"
         self.distance.text = String(format: "%4.2f", distance / 1000)
-        print(map.camera.altitude)
     }
 
     @IBAction func zoomOutPushed(_ sender: Any) {
