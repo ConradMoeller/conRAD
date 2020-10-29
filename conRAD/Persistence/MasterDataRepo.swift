@@ -37,7 +37,7 @@ class MasterDataRepo {
         } catch let error as NSError {
             print(error)
         }
-        return Cyclist(name: "", weigth: "0", maxHR: "0", FTP: "0", dob: "")
+        return Cyclist(name: "", weigth: "0", maxHR: "0", FTP: "0", dob: "", tileUrl: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png", maxZoom: "15")
     }
 
     static func writeCyclist(cyclist: Cyclist) {
@@ -95,6 +95,16 @@ class MasterDataRepo {
         setup.bike = bicycle.id
         writeSettings(settings: setup)
     }
+    
+    static func deleteBike(id: String) {
+        let filePath = FileTool.getFileURL(name: "bicycles/" + id, ext: "json")
+        do {
+            try FileManager.default.removeItem(at: filePath)
+        } catch {
+            print("Failed to delete JSON data: \(error.localizedDescription)")
+        }
+    }
+
 
     static func newTraining() -> Training {
         return Training(id: UUID().uuidString, name: "", hr: "0", power: "0", cadence: "0")
@@ -142,4 +152,12 @@ class MasterDataRepo {
         writeSettings(settings: setup)
     }
 
+    static func deleteTraining(id: String) {
+        let filePath = FileTool.getFileURL(name: "trainings/" + id, ext: "json")
+        do {
+            try FileManager.default.removeItem(at: filePath)
+        } catch {
+            print("Failed to delete JSON data: \(error.localizedDescription)")
+        }
+    }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreMotion
+import CoreLocation
 
 class DataCollectionService {
 
@@ -53,6 +54,7 @@ class DataCollectionService {
     private var speedData: DoubleMeterData
     private var cadenceData2: IntMeterData
 
+    private var coordinates = [CLLocationCoordinate2D]()
     private var speed = 0.0
     private var lastSpeed = 0.0
     private var distance = 0.0
@@ -63,6 +65,8 @@ class DataCollectionService {
     private let df = DateFormatter()
     private var logFile: ActivityLogFile!
     private let logDateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000Z'"
+    
+    private var count = 0
 
     private init() {
     
@@ -116,7 +120,7 @@ class DataCollectionService {
         logFile = ActivityLogFile(name: "sessions/conRAD-" + df.string(from: Date()))
         df.timeZone = TimeZone(identifier: "UTC")
         df.dateFormat = logDateFormat
-        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(log), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(log), userInfo: nil, repeats: true)
     }
     
     func stopRecording() {
@@ -172,6 +176,7 @@ class DataCollectionService {
             gpsConnector.connect()
         }
         gpsConnector.reset()
+        coordinates.removeAll()
     }
 
     func isHRDeviceConnected() -> Bool {
@@ -264,6 +269,10 @@ class DataCollectionService {
     func getPowerBalance() -> Int {
         return pmConnector.getBalance()
     }
+    
+    func getCoordinates() -> [CLLocationCoordinate2D] {
+        return coordinates
+    }
 
     private func evaluateAltitude() {
         altitude = round(gpsConnector.getAltitude() * 1000) / 1000
@@ -271,6 +280,10 @@ class DataCollectionService {
 
     @objc private func log() {
         if recordingStarted {
+            if count % 5 == 0 {
+                coordinates.append(gpsConnector.getCoordinate())
+            }
+            count += 1
             let record = LogRecord()
             record.data[DataCollectionService.METRIC_TIME] = String(df.string(from: Date()))
             record.data[DataCollectionService.METRIC_DIST] = String(getDistance())

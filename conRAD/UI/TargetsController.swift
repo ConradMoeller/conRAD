@@ -272,7 +272,7 @@ extension TargetsViewController: UITextFieldDelegate {
 }
 
 extension TargetsViewController: ListViewDelegate {
-    
+        
     func getFileList() -> [(id: String, name: String)] {
         var result = [(id: String, name: String)]()
         let trainings = MasterDataRepo.readTrainings()
@@ -288,4 +288,9 @@ extension TargetsViewController: ListViewDelegate {
         MasterDataRepo.writeSettings(settings: settings)
         readSettings()
     }
+    
+    func removeFile(id: String) {
+        MasterDataRepo.deleteTraining(id: id)
+    }
+
 }

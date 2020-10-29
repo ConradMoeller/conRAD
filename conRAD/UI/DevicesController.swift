@@ -216,5 +216,10 @@ extension DevicesViewController: ListViewDelegate {
         MasterDataRepo.writeSettings(settings: settings)
         readBike()
     }
+    
+    func removeFile(id: String) {
+        MasterDataRepo.deleteBike(id: id)
+    }
+
 }
 

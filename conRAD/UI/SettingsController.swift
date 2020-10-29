@@ -16,9 +16,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var maxHR: UITextField!
     @IBOutlet weak var ftp: UITextField!
-
-    @IBOutlet weak var dob: UIDatePicker!
-
+    @IBOutlet weak var tileUrl: UITextField!
+    @IBOutlet weak var maxZoom: UITextField!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -29,6 +29,8 @@ class SettingsViewController: UIViewController {
         weight.delegate = self
         maxHR.delegate = self
         ftp.delegate = self
+        tileUrl.delegate = self
+        maxZoom.delegate = self
         UIUtil.applyBoxStyle(view: headerBox)
         readSettings()
     }
@@ -43,6 +45,8 @@ class SettingsViewController: UIViewController {
         weight.resignFirstResponder()
         maxHR.resignFirstResponder()
         ftp.resignFirstResponder()
+        tileUrl.resignFirstResponder()
+        maxZoom.resignFirstResponder()
         writeSettings()
     }
 
@@ -52,19 +56,17 @@ class SettingsViewController: UIViewController {
         weight.text = cyclist.weigth
         maxHR.text = cyclist.maxHR
         ftp.text = cyclist.FTP
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let d = df.date(from: cyclist.dob)
-        if d != nil {
-            dob.setDate(d!, animated: false)
-        }
+        tileUrl.text = cyclist.tileUrl
+        maxZoom.text = cyclist.maxZoom
     }
 
     func writeSettings() {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let cyclist = Cyclist(name: userName.text!, weigth: weight.text!, maxHR: maxHR.text!, FTP: ftp.text!, dob: df.string(from: dob.date))
+        let oldTileUrl = MasterDataRepo.readCyclist().tileUrl
+        let cyclist = Cyclist(name: userName.text!, weigth: weight.text!, maxHR: maxHR.text!, FTP: ftp.text!,dob: "", tileUrl: tileUrl.text!, maxZoom: maxZoom.text!)
         MasterDataRepo.writeCyclist(cyclist: cyclist)
+        if oldTileUrl != cyclist.tileUrl {
+            MyMapCache.reInit()
+        }
     }
 
 }
@@ -72,7 +74,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITextFieldDelegate {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == userName {
+        if textField == userName || textField == tileUrl {
             return true
         }
         let  char = string.cString(using: String.Encoding.utf8)!

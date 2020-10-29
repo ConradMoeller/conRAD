@@ -12,6 +12,7 @@ protocol ListViewDelegate {
     
     func getFileList() -> [(id: String, name: String)]
     func setSelectedFile(id: String)
+    func removeFile(id: String)
 }
 
 class ListViewNavigation: UINavigationController {
@@ -96,5 +97,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             listViewDelegate.setSelectedFile(id: foundFileIds[indexPath.row])
         }
         dismiss()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            listViewDelegate.removeFile(id: foundFileIds[indexPath.row])
+            foundFileIds.remove(at: indexPath.row)
+            foundFileNames.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

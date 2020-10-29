@@ -51,6 +51,7 @@
 		50D3C2B125463A030086C292 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D3C2B025463A020086C292 /* HealthKit.framework */; };
 		50D3C2C0254765A30086C292 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D3C2BF254765A30086C292 /* ListView.xib */; };
 		50D3C2C7254812560086C292 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3C2C6254812560086C292 /* ListViewController.swift */; };
+		50D3C2D525488BE80086C292 /* MyMapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3C2D425488BE80086C292 /* MyMapCache.swift */; };
 		EEDCD7CEAAE33E029D4DC44B /* Pods_conRAD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E47F834E29736DE8B839947 /* Pods_conRAD.framework */; };
 /* End PBXBuildFile section */
 
@@ -206,6 +207,7 @@
 		50D3C2B42546BAA90086C292 /* conRAD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = conRAD.entitlements; sourceTree = "<group>"; };
 		50D3C2BF254765A30086C292 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
 		50D3C2C6254812560086C292 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		50D3C2D425488BE80086C292 /* MyMapCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapCache.swift; sourceTree = "<group>"; };
 		969C0C05895057AC051E02E1 /* Pods-conRAD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conRAD.debug.xcconfig"; path = "Target Support Files/Pods-conRAD/Pods-conRAD.debug.xcconfig"; sourceTree = "<group>"; };
 		EDBD964BCB845E694EDBA7C9 /* Pods-conRAD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conRAD.release.xcconfig"; path = "Target Support Files/Pods-conRAD/Pods-conRAD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,6 +318,7 @@
 			children = (
 				504D1317232E76F600C2290E /* ServiceController.swift */,
 				504D1319232E76F600C2290E /* DataCollectionService.swift */,
+				50D3C2D425488BE80086C292 /* MyMapCache.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				504D1363232E79CD00C2290E /* TargetsController.swift in Sources */,
 				506700EB2520ED6F00AD818B /* MasterDataRepo.swift in Sources */,
 				504D1335232E76F600C2290E /* ServiceController.swift in Sources */,
+				50D3C2D525488BE80086C292 /* MyMapCache.swift in Sources */,
 				50A4EDB8234D1A530076983F /* WelcomeViewController.swift in Sources */,
 				504D1361232E79CD00C2290E /* StravaAuthenticationViewController.swift in Sources */,
 				504D133E232E76F600C2290E /* GearBox.swift in Sources */,

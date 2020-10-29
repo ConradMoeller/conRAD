@@ -56,6 +56,11 @@ class GPSConnector: NSObject {
         startLocation = location
         return traveledDistance
     }
+    
+    func getCoordinate() -> CLLocationCoordinate2D {
+        guard let location = locationManager.location else { return startLocation.coordinate }
+        return location.coordinate
+    }
 
     func getLatitude() -> Double {
         guard let location = locationManager.location else { return 0.0 }

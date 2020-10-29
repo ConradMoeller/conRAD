@@ -40,6 +40,8 @@ struct Cyclist: Encodable, Decodable {
     var maxHR: String
     var FTP: String
     var dob: String
+    var tileUrl: String
+    var maxZoom: String
 
 }
 

@@ -5,7 +5,7 @@ target 'conRAD' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for UltimateTriTrainer
+  # Pods for conRAD
   # platform :ios, '8.0'
   
   pod 'FileBrowser', '1.0'
@@ -13,4 +13,7 @@ target 'conRAD' do
   pod 'Alamofire', '4.8.2'
 
   pod 'SwiftyJSON', '4.2.0'
+
+  pod 'MapCache'
+
 end
