@@ -1,0 +1,174 @@
+
+/* Class = "UILabel"; text = "00.0 (00.0)"; ObjectID = "10k-cU-pYW"; */
+"10k-cU-pYW.text" = "00.0 (00.0)";
+
+/* Class = "UILabel"; text = "Wheel Size"; ObjectID = "1YW-Nf-loK"; */
+"1YW-Nf-loK.text" = "Laufradumfang";
+
+/* Class = "UILabel"; text = "m"; ObjectID = "2Yb-ta-qHk"; */
+"2Yb-ta-qHk.text" = "m";
+
+/* Class = "UILabel"; text = "Bicycles"; ObjectID = "3jK-gf-yei"; */
+"3jK-gf-yei.text" = "Fahrräder";
+
+/* Class = "UILabel"; text = "88:88:88"; ObjectID = "5hQ-gw-fOg"; */
+"5hQ-gw-fOg.text" = "88:88:88";
+
+/* Class = "UILabel"; text = "888"; ObjectID = "9Ku-Sg-hpk"; */
+"9Ku-Sg-hpk.text" = "888";
+
+/* Class = "UITextField"; text = "180"; ObjectID = "Aae-xK-ZbD"; */
+"Aae-xK-ZbD.text" = "180";
+
+/* Class = "UILabel"; text = "Training"; ObjectID = "E4u-Nw-DhX"; */
+"E4u-Nw-DhX.text" = "Training";
+
+/* Class = "UITextField"; text = "180"; ObjectID = "EHy-Ib-4gq"; */
+"EHy-Ib-4gq.text" = "180";
+
+/* Class = "UILabel"; text = "888"; ObjectID = "Ec7-zT-hQS"; */
+"Ec7-zT-hQS.text" = "888";
+
+/* Class = "UILabel"; text = "(88.8)"; ObjectID = "FJv-rm-B3R"; */
+"FJv-rm-B3R.text" = "(88.8)";
+
+/* Class = "UITextField"; text = "39"; ObjectID = "GSv-l4-nmi"; */
+"GSv-l4-nmi.text" = "39";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "Gnq-nl-2Lg"; */
+"Gnq-nl-2Lg.text" = "00.0";
+
+/* Class = "UITabBarItem"; title = "Bicycles"; ObjectID = "Hhi-aV-RfZ"; */
+"Hhi-aV-RfZ.title" = "Fahrräder";
+
+/* Class = "UILabel"; text = "max Zoom"; ObjectID = "Jd6-ic-50O"; */
+"Jd6-ic-50O.text" = "max Zoom";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "K9g-Mv-ZeH"; */
+"K9g-Mv-ZeH.text" = "Name";
+
+/* Class = "UITextField"; text = "180"; ObjectID = "Kip-ZU-PhU"; */
+"Kip-ZU-PhU.text" = "180";
+
+/* Class = "UILabel"; text = "888.88"; ObjectID = "Kue-zr-sYT"; */
+"Kue-zr-sYT.text" = "888.88";
+
+/* Class = "UILabel"; text = "Sprockets"; ObjectID = "LSg-Hm-jMC"; */
+"LSg-Hm-jMC.text" = "Ritzel";
+
+/* Class = "UIButton"; normalTitle = " Power Meter"; ObjectID = "MH0-Hq-ugt"; */
+"MH0-Hq-ugt.normalTitle" = " Power Meter";
+
+/* Class = "UILabel"; text = "W"; ObjectID = "Mci-6Q-fz0"; */
+"Mci-6Q-fz0.text" = "W";
+
+/* Class = "UILabel"; text = "(8888)"; ObjectID = "NeR-eW-G4b"; */
+"NeR-eW-G4b.text" = "(8888)";
+
+/* Class = "UILabel"; text = "Cyclist"; ObjectID = "Nqd-bk-X8N"; */
+"Nqd-bk-X8N.text" = "Einstellungen";
+
+/* Class = "UIButton"; normalTitle = " HR Meter"; ObjectID = "QtF-tt-jdJ"; */
+"QtF-tt-jdJ.normalTitle" = " HR Meter";
+
+/* Class = "UILabel"; text = "km/h"; ObjectID = "RCo-KY-6eb"; */
+"RCo-KY-6eb.text" = "km/h";
+
+/* Class = "UITabBarItem"; title = "Cyclist"; ObjectID = "UWx-j6-VDD"; */
+"UWx-j6-VDD.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "RPM"; ObjectID = "VW7-FE-gyA"; */
+"VW7-FE-gyA.text" = "RPM";
+
+/* Class = "UILabel"; text = "km"; ObjectID = "VcI-cw-knP"; */
+"VcI-cw-knP.text" = "km";
+
+/* Class = "UITabBarItem"; title = "Cycle"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Fahren";
+
+/* Class = "UILabel"; text = "8888"; ObjectID = "bDa-Y6-qiG"; */
+"bDa-Y6-qiG.text" = "8888";
+
+/* Class = "UILabel"; text = "max HR"; ObjectID = "cDY-rA-ha6"; */
+"cDY-rA-ha6.text" = "max Herzfrequenz";
+
+/* Class = "UILabel"; text = "Heart Rate "; ObjectID = "dl3-mJ-91b"; */
+"dl3-mJ-91b.text" = "Herzfrequenz";
+
+/* Class = "UILabel"; text = "Crank"; ObjectID = "hBZ-p9-qL5"; */
+"hBZ-p9-qL5.text" = "Kurbel";
+
+/* Class = "UITabBarItem"; title = "Training"; ObjectID = "hdK-9y-c2A"; */
+"hdK-9y-c2A.title" = "Training";
+
+/* Class = "UILabel"; text = "BPM"; ObjectID = "iZe-cu-GzN"; */
+"iZe-cu-GzN.text" = "BPM";
+
+/* Class = "UITextField"; text = "11,12,13,14,15,17,19,21,23,25,28"; ObjectID = "j1m-32-fuX"; */
+"j1m-32-fuX.text" = "11,12,13,14,15,17,19,21,23,25,28";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "jMz-LP-0xZ"; */
+"jMz-LP-0xZ.title" = "Karte";
+
+/* Class = "UILabel"; text = "Power"; ObjectID = "jea-NL-3dh"; */
+"jea-NL-3dh.text" = "Leistung";
+
+/* Class = "UIButton"; normalTitle = " CSC Meter"; ObjectID = "mOI-Fx-cUx"; */
+"mOI-Fx-cUx.normalTitle" = " CSC Meter";
+
+/* Class = "UITextField"; text = "2000"; ObjectID = "nHH-9P-7Ii"; */
+"nHH-9P-7Ii.text" = "2000";
+
+/* Class = "UILabel"; text = "88.8"; ObjectID = "nSQ-Uc-U8W"; */
+"nSQ-Uc-U8W.text" = "88.8";
+
+/* Class = "UITextField"; text = "185"; ObjectID = "nmI-sb-6sR"; */
+"nmI-sb-6sR.text" = "185";
+
+/* Class = "UITextField"; text = "140"; ObjectID = "qXZ-J9-ERo"; */
+"qXZ-J9-ERo.text" = "140";
+
+/* Class = "UITextField"; text = "180"; ObjectID = "r4S-1j-4gy"; */
+"r4S-1j-4gy.text" = "180";
+
+/* Class = "UILabel"; text = "88.88"; ObjectID = "t42-o6-vyU"; */
+"t42-o6-vyU.text" = "88.88";
+
+/* Class = "UILabel"; text = "km/h"; ObjectID = "tUR-jc-TP4"; */
+"tUR-jc-TP4.text" = "km/h";
+
+/* Class = "UILabel"; text = "Cadence"; ObjectID = "tZo-Bu-EQn"; */
+"tZo-Bu-EQn.text" = "Trittfrequenz";
+
+/* Class = "UILabel"; text = "888"; ObjectID = "tse-Oa-JAR"; */
+"tse-Oa-JAR.text" = "888";
+
+/* Class = "UITextField"; text = "53"; ObjectID = "uBh-V6-lZ6"; */
+"uBh-V6-lZ6.text" = "53";
+
+/* Class = "UITextField"; text = "180"; ObjectID = "w3u-4N-KGQ"; */
+"w3u-4N-KGQ.text" = "180";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "wkp-4U-mXd"; */
+"wkp-4U-mXd.text" = "Name";
+
+/* Class = "UILabel"; text = "8888"; ObjectID = "xVT-9A-60u"; */
+"xVT-9A-60u.text" = "8888";
+
+/* Class = "UILabel"; text = "FTP"; ObjectID = "yGE-Y6-Gc0"; */
+"yGE-Y6-Gc0.text" = "FTP";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "yTG-7A-OX6"; */
+"yTG-7A-OX6.text" = "00:00:00";
+
+/* Class = "UILabel"; text = "km"; ObjectID = "yd0-ps-fhb"; */
+"yd0-ps-fhb.text" = "km";
+
+/* Class = "UILabel"; text = "Weight"; ObjectID = "ylQ-sp-jnF"; */
+"ylQ-sp-jnF.text" = "Gewicht";
+
+/* Class = "UILabel"; text = "88.8"; ObjectID = "z5c-M1-aKX"; */
+"z5c-M1-aKX.text" = "88.8";
+
+/* Class = "UILabel"; text = "URL Tile Server"; ObjectID = "zml-Wn-I7M"; */
+"zml-Wn-I7M.text" = "URL Tile Server";

@@ -48,10 +48,10 @@ class DevicesViewController: UIViewController {
     }
 
     @IBAction func newBikePushed(_ sender: Any) {
-        let popup = UIAlertController(title: "New Bicyle", message: "Type in the name!", preferredStyle: .alert)
+        let popup = UIAlertController(title: NSLocalizedString("New Bicyle", comment: "no comment"), message: NSLocalizedString("Type in the name!", comment: "no comment"), preferredStyle: .alert)
         popup.addTextField(configurationHandler: fileName)
         let ok = UIAlertAction(title: "OK", style: .default, handler: handleOK)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "no comment"), style: .cancel, handler: nil)
         popup.addAction(ok)
         popup.addAction(cancel)
         present(popup, animated: true, completion: nil)

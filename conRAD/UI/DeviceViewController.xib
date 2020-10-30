@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeviceViewController" customModule="UltimateTriTrainer" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeviceViewController" customModule="conRAD" customModuleProvider="target">
             <connections>
                 <outlet property="battery" destination="6Th-Q3-VQS" id="JuF-Qe-K3d"/>
                 <outlet property="deviceList" destination="ca1-zr-y5s" id="Yh1-td-5Xa"/>
@@ -20,6 +18,7 @@
                 <outlet property="scanActivity" destination="BNq-qO-b5n" id="1yK-Sk-QXW"/>
                 <outlet property="scanButton" destination="cR3-7Z-ZRx" id="KwH-ni-AAA"/>
                 <outlet property="scanView" destination="IjE-Zt-85m" id="X7k-mM-ecf"/>
+                <outlet property="unpairbutton" destination="t0G-j1-nrg" id="Qxi-gU-Zgo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,7 +44,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-7Z-ZRx">
-                            <rect key="frame" x="98.5" y="276.5" width="178" height="37"/>
+                            <rect key="frame" x="92.5" y="263.5" width="190" height="50"/>
                             <state key="normal" title=" Scan for Devices" image="disconnect"/>
                             <connections>
                                 <action selector="findPushed:" destination="-1" eventType="touchUpInside" id="VwG-k3-PGR"/>
@@ -64,7 +63,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-MN-q4p" userLabel="InfoView">
-                    <rect key="frame" x="0.0" y="177" width="375" height="333.5"/>
+                    <rect key="frame" x="0.0" y="167" width="375" height="333.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tU-Jv-L9P">
                             <rect key="frame" x="187.5" y="106.5" width="0.0" height="0.0"/>
@@ -94,7 +93,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-j1-nrg" userLabel="Unpair Device">
-                            <rect key="frame" x="110" y="276.5" width="155" height="37"/>
+                            <rect key="frame" x="103.5" y="263.5" width="168" height="50"/>
                             <state key="normal" title=" Unpair Device" image="disconnect"/>
                             <connections>
                                 <action selector="unpairPushed:" destination="-1" eventType="touchUpInside" id="a9l-9y-aDx"/>
@@ -114,6 +113,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="BNq-qO-b5n" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4T5-6l-byU"/>
@@ -127,11 +127,10 @@
                 <constraint firstItem="IjE-Zt-85m" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="iV3-GN-3bk"/>
                 <constraint firstItem="LNB-MN-q4p" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="u04-OC-zlT"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="32.799999999999997" y="58.020989505247378"/>
         </view>
     </objects>
     <resources>
-        <image name="disconnect" width="37.5" height="37.5"/>
+        <image name="disconnect" width="50" height="50"/>
     </resources>
 </document>

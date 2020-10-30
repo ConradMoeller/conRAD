@@ -32,7 +32,7 @@ class ListViewController: UIViewController {
     
     public var listViewDelegate: ListViewDelegate!
     
-    var barItemTitle = "Cancel"
+    var barItemTitle = NSLocalizedString("Cancel", comment: "no comment")
     var foundFileIds: [String] = []
     var foundFileNames: [String] = []
     

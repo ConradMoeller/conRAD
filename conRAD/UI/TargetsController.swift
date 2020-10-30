@@ -107,10 +107,10 @@ class TargetsViewController: UIViewController {
     }
 
     @IBAction func newFilePushed(_ sender: Any) {
-        let popup = UIAlertController(title: "New Setup", message: "Type in the name!", preferredStyle: .alert)
+        let popup = UIAlertController(title: NSLocalizedString("New Training", comment: "no comment"), message: NSLocalizedString("Type in the name!", comment: "no comment"), preferredStyle: .alert)
         popup.addTextField(configurationHandler: fileName)
         let ok = UIAlertAction(title: "OK", style: .default, handler: handleOK)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "no comment"), style: .cancel, handler: nil)
         popup.addAction(ok)
         popup.addAction(cancel)
         present(popup, animated: true, completion: nil)
@@ -122,7 +122,7 @@ class TargetsViewController: UIViewController {
 
     func handleOK(action: UIAlertAction) {
         var training = MasterDataRepo.newTraining()
-        training.name = fileName?.text ?? "new training"
+        training.name = fileName?.text ?? NSLocalizedString("new training", comment: "no comment")
         training.hr = "0"
         training.cadence = "0"
         training.power = "0"
@@ -183,7 +183,7 @@ class TargetsViewController: UIViewController {
 
         if !btSwitch.isOn {
             btSwitch.setOn(true, animated: true)
-            let popup = UIAlertController(title: "Starting Session", message: "Connecting to BLE Devices!", preferredStyle: .alert)
+            let popup = UIAlertController(title: NSLocalizedString("Starting Training", comment: "no comment"), message: NSLocalizedString("Connecting to BLE Devices!", comment: "no comment"), preferredStyle: .alert)
             present(popup, animated: true, completion: nil)
             connectDevices()
             Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
@@ -238,7 +238,7 @@ class TargetsViewController: UIViewController {
 
     func alertUploadError() {
         stravaUpload.stopAnimating()
-        let popup = UIAlertController(title: "Strava Upload", message: "Sorry, strava upload finished with an error!", preferredStyle: .alert)
+        let popup = UIAlertController(title: NSLocalizedString("Strava Upload", comment: "no comment"), message: NSLocalizedString("Sorry, strava upload finished with an error!", comment: "no comment"), preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         popup.addAction(ok)
         present(popup, animated: true, completion: nil)

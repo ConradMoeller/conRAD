@@ -117,9 +117,9 @@ class NavigationViewController: UIViewController {
         let se = map.southEastCoordinate
         let region = TileCoordsRegion(topLeftLatitude: nw.latitude, topLeftLongitude: nw.longitude, bottomRightLatitude: se.latitude, bottomRightLongitude: se.longitude, minZoom: 10, maxZoom: 15)
         
-        let popup = UIAlertController(title: "Map Download", message: "Download \(region?.count ?? 0) tiles?", preferredStyle: .alert)
+        let popup = UIAlertController(title: NSLocalizedString("Map Download", comment: "no comment"), message: "Download \(region?.count ?? 0) tiles?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: {_ in self.startDownload(region: region!)})
-        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: {_ in popup.dismiss(animated: true, completion: {})})
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "no comment"), style: .default, handler: {_ in popup.dismiss(animated: true, completion: {})})
         popup.addAction(ok)
         popup.addAction(cancel)
         present(popup, animated: true, completion: nil)
@@ -149,7 +149,7 @@ class NavigationViewController: UIViewController {
     }
     
     func alertCacheCleared() {
-        let popup = UIAlertController(title: "Offline Maps deleted", message: "", preferredStyle: .alert)
+        let popup = UIAlertController(title: NSLocalizedString("Offline Maps deleted", comment: "no comment"), message: "", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: { _ in popup.dismiss(animated: true, completion: {})})
         popup.addAction(ok)
         present(popup, animated: true, completion: nil)

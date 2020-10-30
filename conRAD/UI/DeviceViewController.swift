@@ -30,7 +30,8 @@ class DeviceViewController: UIViewController {
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var battery: UILabel!
-
+    @IBOutlet weak var unpairbutton: UIButton!
+    
     var currentId: String!
     var currentName: String!
     
@@ -39,7 +40,7 @@ class DeviceViewController: UIViewController {
     var stopScan: (() -> Void)!
     var pair: ((_: String, _: String) -> Void)!
     var unpair:(() -> Void)!
-    var barItemTitle = "Cancel"
+    var barItemTitle = NSLocalizedString("Cancel", comment: "no comment")
 
     var scanning = false
     var foundDeviceIds: [String] = []
@@ -49,6 +50,7 @@ class DeviceViewController: UIViewController {
         super.viewDidLoad()
         self.infoView.isHidden = true
         self.scanView.isHidden = true
+        unpairbutton.setTitle(NSLocalizedString("Unpair Device", comment: "no comment"), for: .normal)
         scanActivity.stopAnimating()
         let dismissButton = UIBarButtonItem(title: barItemTitle, style: .plain, target: self, action: #selector(DeviceViewController.dismiss(button:)))
         self.navigationItem.rightBarButtonItem = dismissButton
@@ -66,7 +68,7 @@ class DeviceViewController: UIViewController {
         self.id.text = currentId
         self.battery.text = "Battery \(0) %"
         if self.id.text == "na" || self.id.text == "" {
-            scanButton.setTitle(" Scan for Devices", for: .normal)
+            scanButton.setTitle(NSLocalizedString(" Scan for Devices", comment: "no comment"), for: .normal)
             foundDeviceIds.removeAll()
             foundDeviceNames.removeAll()
             deviceList.reloadData()
@@ -108,12 +110,12 @@ class DeviceViewController: UIViewController {
     
     @IBAction func findPushed(_ sender: Any) {
         if scanning {
-            scanButton.setTitle(" Scan for Devices", for: .normal)
+            scanButton.setTitle(NSLocalizedString(" Scan for Devices", comment: "no comment"), for: .normal)
             scanActivity.stopAnimating()
             scanning = false
             stopScan()
         } else {
-            scanButton.setTitle(" Stop Scanning", for: .normal)
+            scanButton.setTitle(NSLocalizedString(" Stop Scanning", comment: "no comment"), for: .normal)
             scanActivity.startAnimating()
             scanActivity.layer.zPosition = 1
             scanActivity.layer.borderWidth = CGFloat(1.0)
