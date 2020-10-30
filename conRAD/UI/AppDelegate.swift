@@ -37,7 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MasterDataRepo.writeTraining(training: training)
         }
         _ = FileTool.createFolder(name: "sessions")
+        _ = FileTool.createFolder(name: "gpx")
         ServiceController.startServices()
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        let fileManager = FileManager.default
+        do {
+            _ = url.startAccessingSecurityScopedResource()
+            try fileManager.copyItem(at: url, to: FileTool.getDir(name: "gpx").appendingPathComponent(url.lastPathComponent))
+            url.stopAccessingSecurityScopedResource()
+        } catch let error as NSError {
+            print("\(error)")
+        }
         return true
     }
 

@@ -617,8 +617,8 @@
                                     <constraint firstItem="3jK-gf-yei" firstAttribute="centerX" secondItem="lb4-KT-HHq" secondAttribute="centerX" id="tV5-kc-pdv"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8De-5V-OmF">
-                                <rect key="frame" x="275" y="11" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8De-5V-OmF">
+                                <rect key="frame" x="295" y="13.5" width="50" height="50"/>
                                 <state key="normal" image="file-open"/>
                                 <connections>
                                     <action selector="openFilePushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="gxc-nO-BDU"/>
@@ -692,7 +692,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gy-yJ-jhp">
-                                <rect key="frame" x="34" y="13.5" width="50" height="50"/>
+                                <rect key="frame" x="30" y="13.5" width="50" height="50"/>
                                 <state key="normal" image="file-new"/>
                                 <connections>
                                     <action selector="newBikePushed:" destination="lZF-e2-BFU" eventType="touchUpInside" id="HwN-FR-OLh"/>
@@ -734,7 +734,7 @@
                             <constraint firstItem="mOI-Fx-cUx" firstAttribute="centerX" secondItem="ZQF-bN-c0m" secondAttribute="centerX" id="VZe-NS-qpL"/>
                             <constraint firstItem="hBZ-p9-qL5" firstAttribute="top" secondItem="1YW-Nf-loK" secondAttribute="bottom" constant="16" id="W76-Px-K1L"/>
                             <constraint firstItem="hBZ-p9-qL5" firstAttribute="leading" secondItem="1YW-Nf-loK" secondAttribute="leading" id="WaJ-b5-QUI"/>
-                            <constraint firstItem="7gy-yJ-jhp" firstAttribute="leading" secondItem="YD6-aa-YbB" secondAttribute="leading" constant="34" id="YMy-tO-ecI"/>
+                            <constraint firstItem="7gy-yJ-jhp" firstAttribute="leading" secondItem="YD6-aa-YbB" secondAttribute="leading" constant="30" id="YMy-tO-ecI"/>
                             <constraint firstItem="LSg-Hm-jMC" firstAttribute="leading" secondItem="1YW-Nf-loK" secondAttribute="leading" id="Z0b-g9-sGg"/>
                             <constraint firstItem="MH0-Hq-ugt" firstAttribute="top" secondItem="mOI-Fx-cUx" secondAttribute="bottom" constant="25" id="bdd-0y-2ba"/>
                             <constraint firstItem="uBh-V6-lZ6" firstAttribute="centerY" secondItem="hBZ-p9-qL5" secondAttribute="centerY" id="coe-1g-Jlv"/>
@@ -810,11 +810,22 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-BY-SQQ" userLabel="opengpx">
+                                        <rect key="frame" x="30" y="21.5" width="50" height="50"/>
+                                        <state key="normal" image="file-open"/>
+                                        <connections>
+                                            <action selector="openFilePushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="EDv-mu-8mm"/>
+                                            <action selector="openGPXPushed:" destination="cnt-SB-Byh" eventType="touchUpInside" id="wVt-Ug-xmh"/>
+                                            <action selector="selectBikePushed:" destination="lZF-e2-BFU" eventType="touchUpInside" id="gp1-Jc-smL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="VbZ-BY-SQQ" firstAttribute="leading" secondItem="BQH-9g-ekI" secondAttribute="leading" constant="30" id="0I9-7v-5fe"/>
                                     <constraint firstItem="yTG-7A-OX6" firstAttribute="centerX" secondItem="BQH-9g-ekI" secondAttribute="centerX" id="DJc-er-B5u"/>
                                     <constraint firstItem="yTG-7A-OX6" firstAttribute="centerY" secondItem="BQH-9g-ekI" secondAttribute="centerY" id="LN8-hr-T6d"/>
+                                    <constraint firstItem="VbZ-BY-SQQ" firstAttribute="centerY" secondItem="BQH-9g-ekI" secondAttribute="centerY" id="kzk-Sn-lmC"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-az-JvQ" userLabel="BottomRight">

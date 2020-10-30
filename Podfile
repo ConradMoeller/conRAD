@@ -16,4 +16,5 @@ target 'conRAD' do
 
   pod 'MapCache'
 
+  pod 'CoreGPX'
 end

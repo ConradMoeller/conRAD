@@ -9,6 +9,8 @@
 import MapKit
 import MapCache
 import UIKit
+import FileBrowser
+import CoreGPX
 
 class NavigationViewController: UIViewController {
 
@@ -30,7 +32,8 @@ class NavigationViewController: UIViewController {
     var downloadPercentage = "0%"
     var downloadTimer: Timer!
     
-    var way: MKPolyline!
+    var route: MKPolyline!
+    var myWay: MKPolyline!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +43,10 @@ class NavigationViewController: UIViewController {
         UIUtil.applyBoxStyle(view: bottomRightBox)
         
         let coordinates = [CLLocationCoordinate2D]()
-        way = MKPolyline(coordinates: coordinates, count: coordinates.count)
-        map.add(way)
+        route = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        map.add(route)
+        myWay = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        map.add(myWay)
         map.delegate = self
         map.useCache(MyMapCache.getInstance())
         map.setUserTrackingMode(.followWithHeading, animated: true)
@@ -69,13 +74,35 @@ class NavigationViewController: UIViewController {
         self.speed.text = "\(String(format: "%.1f", speed * 3.6)) (\(String(format: "%.1f", abs(distance) / abs(t) * 3.6)))"
         self.distance.text = String(format: "%4.2f", distance / 1000)
         if dataCollector.recordingStarted {
-            map.remove(way)
+            map.remove(myWay)
             let coordinates = dataCollector.getCoordinates()
-            way = MKPolyline(coordinates: coordinates, count: coordinates.count)
-            map.add(way)
+            myWay = MKPolyline(coordinates: coordinates, count: coordinates.count)
+            map.add(myWay)
         }
     }
 
+    @IBAction func openGPXPushed(_ sender: Any) {
+        let fb = FileBrowser(initialPath: FileTool.getDir(name: "gpx"), allowEditing: true, showCancelButton: true)
+        fb.excludesFileExtensions = []
+        fb.didSelectFile = openGPXFile
+        present(fb, animated: true, completion: nil)
+    }
+    
+    private func openGPXFile(file: FBFile) {
+        guard let gpx = GPXParser(withURL: file.filePath)?.parsedData() else { return }
+        var coordinates = [CLLocationCoordinate2D]()
+        for track in gpx.tracks {
+            for segment in track.tracksegments {
+                for point in segment.trackpoints {
+                    coordinates.append(CLLocationCoordinate2D(latitude: point.latitude ?? 0, longitude: point.longitude ?? 0))
+                }
+            }
+        }
+        map.remove(route)
+        route = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        map.add(route)
+    }
+    
     @IBAction func zoomOutPushed(_ sender: Any) {
         map.setUserTrackingMode(.none, animated: true)
         map.camera.altitude = map.camera.altitude * 2
@@ -152,8 +179,12 @@ extension NavigationViewController: MKMapViewDelegate  {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let way = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: way)
-            renderer.strokeColor = UIColor.blue
-            renderer.lineWidth = 7
+            if way == route {
+                renderer.strokeColor = UIColor.blue
+            } else {
+                renderer.strokeColor = UIColor.gray
+            }
+            renderer.lineWidth = 4
             return renderer
         }
         return mapView.mapCacheRenderer(forOverlay: overlay)

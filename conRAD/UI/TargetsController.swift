@@ -58,12 +58,6 @@ class TargetsViewController: UIViewController {
         UIUtil.applyBoxStyle(view: btBox)
     }
 
-    private func getFileBrowser() -> FileBrowser {
-        let fb = FileBrowser(initialPath: FileTool.getDir(name: "sessions"), allowEditing: true, showCancelButton: true)
-        fb.excludesFileExtensions = []
-        return fb
-    }
-
     private func readSettings() {
         let training = MasterDataRepo.readTraining()
         bpmAvg.text = training.hr
@@ -224,7 +218,9 @@ class TargetsViewController: UIViewController {
     }
 
     @IBAction func openSessionsFolderPushed(_ sender: Any) {
-        present(getFileBrowser(), animated: true, completion: nil)
+        let fb = FileBrowser(initialPath: FileTool.getDir(name: "sessions"), allowEditing: true, showCancelButton: true)
+        fb.excludesFileExtensions = []
+        present(fb, animated: true, completion: nil)
     }
     
     func selectUpload(strava: Strava) {
