@@ -130,10 +130,7 @@ class DeviceViewController: UIViewController {
     }
 
     @IBAction func unpairPushed(_ sender: Any) {
-        var bike = MasterDataRepo.readBicycle()
-        bike.HRSensorId = ""
-        bike.HRSensorName = ""
-        MasterDataRepo.writeBicycle(bicycle: bike)
+        unpair()
         self.dismiss(animated: true, completion: nil)
     }
 

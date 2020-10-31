@@ -42,13 +42,17 @@ class CycleViewController: UIViewController {
     @IBOutlet weak var avgWattValue: UILabel!
     @IBOutlet weak var pwrValue: UILabel!
     @IBOutlet weak var cadenceValue: UILabel!
-
+    @IBOutlet weak var gear1: UILabel!
+    @IBOutlet weak var gear2: UILabel!
+    
     var metricSystem = true
     var timer: Timer!
     var log = true
-
+    
     var dataCollector = DataCollectionService.getInstance()
 
+    var bike: Bicycle!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,6 +75,7 @@ class CycleViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         updateSystem()
+        bike = MasterDataRepo.readBicycle()
         if timer != nil {
             timer.invalidate()
         }
@@ -108,7 +113,7 @@ class CycleViewController: UIViewController {
         timeValue.text = "00:00:00"
         distanceValue.text = "0.00"
         speedValue.text = "0.0"
-        optSpeed.text = "--"
+        optSpeed.text = NSLocalizedString("Gear", comment: "no comment")
         avgSpeedValue.text = "(--)"
         altValue.text = "0"
         hrValue.text = "0"
@@ -146,6 +151,12 @@ class CycleViewController: UIViewController {
         pwrValue.text = String(pmData.getValue())
         let pbl = dataCollector.getPowerBalance()
         powerBalance.text = "\(pbl) / \(100 - pbl)"
+        
+        let gearbox = bike.getGearBox()
+        let rollOut = dataCollector.getRollOut()
+        gear1.text = gearbox.findGear(frontIndex: 0, rollOut: rollOut).getDesc()
+        gear2.text = gearbox.findGear(frontIndex: 1, rollOut: rollOut).getDesc()
+        
     }
 
     @objc func updateAll() {

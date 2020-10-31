@@ -54,6 +54,8 @@ class DataCollectionService {
     private var speedData: DoubleMeterData
     private var cadenceData2: IntMeterData
 
+    private var rolloutData: DoubleMeterData
+    
     private var coordinates = [CLLocationCoordinate2D]()
     private var speed = 0.0
     private var lastSpeed = 0.0
@@ -84,6 +86,7 @@ class DataCollectionService {
         speedData = DoubleMeterData(useLastValue: false, bufferSize: DataCollectionService.SPEED_BUFFER_SIZE)
         cadenceData2 = IntMeterData(useLastValue: false, bufferSize: DataCollectionService.CADENCE_BUFFER_SIZE)
         cscConnector = CyclingSpeedCadenceConnector(speedData: speedData, rpmData: cadenceData2, wheelSize: Int(ws) ?? 2000)
+        rolloutData = DoubleMeterData(useLastValue: false, bufferSize: 5)
     }
 
     func reInitPowerData() {
@@ -216,6 +219,13 @@ class DataCollectionService {
             return cscConnector.getWheelRPM()
         }
         return IntMeterData(useLastValue: true, bufferSize: 1)
+    }
+    
+    func getRollOut() -> Double {
+        if (getCadenceData().getValue() > 1) {
+            rolloutData.queue(v: Double(getWheelRPMData().getValue()) / Double(getCadenceData().getValue()))
+        }
+        return rolloutData.getValue()
     }
 
     private func getSpeedData() -> DoubleMeterData {

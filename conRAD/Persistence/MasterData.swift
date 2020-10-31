@@ -30,6 +30,10 @@ struct Bicycle: Encodable, Decodable {
     var CSCSensorName: String
     var PowerSensorId: String
     var PowerSensorName: String
+    
+    func getGearBox() -> GearBox {
+        return GearBox(wheelSize: Int(wheelSize) ?? 2000, crank1: crank1, crank2: crank2, sprockets: sprockets)
+    }
 
 }
 
