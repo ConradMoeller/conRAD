@@ -53,8 +53,53 @@ struct Training: Encodable, Decodable {
 
     var id: String
     var name: String
+    var intervals: [Interval]
+    var currentInterval = 0
+    
+    var hr: String {
+        get {
+            intervals[currentInterval].hr
+        }
+        set(newValue) {
+            intervals[currentInterval].hr = newValue
+        }
+    }
+
+    var cadence: String {
+        get {
+            intervals[currentInterval].cadence
+        }
+        set(newValue) {
+            intervals[currentInterval].cadence = newValue
+        }
+    }
+
+    var power: String {
+        get {
+            intervals[currentInterval].power
+        }
+        set(newValue) {
+            intervals[currentInterval].power = newValue
+        }
+    }
+
+    var duration: String {
+        get {
+            intervals[currentInterval].duration
+        }
+        set(newValue) {
+            intervals[currentInterval].duration = newValue
+        }
+    }
+
+}
+
+struct Interval: Encodable, Decodable {
+
+    var name: String
     var hr: String
     var power: String
     var cadence: String
-
+    var duration: String
+    
 }

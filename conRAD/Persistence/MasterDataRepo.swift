@@ -107,7 +107,7 @@ class MasterDataRepo {
 
 
     static func newTraining() -> Training {
-        return Training(id: UUID().uuidString, name: "", hr: "0", power: "0", cadence: "0")
+        return Training(id: UUID().uuidString, name: "", intervals: [Interval(name: "interval 1", hr: "0", power: "0", cadence: "0", duration: "0")])
     }
     
     static func readTraining() -> Training {
