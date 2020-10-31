@@ -20,13 +20,13 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
-            		<array/>
+			<array/>
 			<key>CFBundleTypeName</key>
 			<string>GPS Exchange Format (GPX)</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.topografix.gpx</string>
