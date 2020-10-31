@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var ftp: UITextField!
     @IBOutlet weak var tileUrl: UITextField!
     @IBOutlet weak var maxZoom: UITextField!
+    @IBOutlet weak var metricSystem: UISwitch!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,13 +63,17 @@ class SettingsViewController: UIViewController {
 
     func writeSettings() {
         let oldTileUrl = MasterDataRepo.readCyclist().tileUrl
-        let cyclist = Cyclist(name: userName.text!, weigth: weight.text!, maxHR: maxHR.text!, FTP: ftp.text!,dob: "", tileUrl: tileUrl.text!, maxZoom: maxZoom.text!)
+        var cyclist = Cyclist(name: userName.text!, weigth: weight.text!, maxHR: maxHR.text!, FTP: ftp.text!,dob: "", tileUrl: tileUrl.text!, maxZoom: maxZoom.text!)
+        cyclist.metricSystem = metricSystem.isOn
         MasterDataRepo.writeCyclist(cyclist: cyclist)
         if oldTileUrl != cyclist.tileUrl {
             MyMapCache.reInit()
         }
     }
 
+    @IBAction func metricSystemChanged(_ sender: Any) {
+        writeSettings()
+    }
 }
 
 extension SettingsViewController: UITextFieldDelegate {

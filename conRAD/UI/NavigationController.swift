@@ -18,12 +18,16 @@ class NavigationViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var downloadProgress: UILabel!
     @IBOutlet weak var bottomLeftBox: UIView!
+    @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var bottomRightBox: UIView!
+    @IBOutlet weak var distanceLabel: UILabel!
 
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var speed: UILabel!
     @IBOutlet weak var distance: UILabel!
 
+    var metricSystem = true
+    
     let formatter = DateFormatter()
     var timer: Timer!
     var dataCollector = DataCollectionService.getInstance()
@@ -42,6 +46,8 @@ class NavigationViewController: UIViewController {
         UIUtil.applyBoxStyle(view: bottomLeftBox)
         UIUtil.applyBoxStyle(view: bottomRightBox)
         
+        updateSystem()
+        
         let coordinates = [CLLocationCoordinate2D]()
         route = MKPolyline(coordinates: coordinates, count: coordinates.count)
         map.add(route)
@@ -57,11 +63,24 @@ class NavigationViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        updateSystem()
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateView), userInfo: nil, repeats: true)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         timer.invalidate()
+    }
+
+    func updateSystem() {
+        let cyclist = MasterDataRepo.readCyclist()
+        metricSystem = cyclist.metricSystem
+        if metricSystem {
+            distanceLabel.text = "km"
+            speedLabel.text = "km/h"
+        } else {
+            distanceLabel.text = "mi"
+            speedLabel.text = "mph"
+        }
     }
 
     @objc func updateView() {
@@ -71,8 +90,10 @@ class NavigationViewController: UIViewController {
         let speed = dataCollector.getSpeed()
         let distance = dataCollector.getDistance()
         self.time.text = formatter.string(for: Date(timeIntervalSince1970: dataCollector.getDuration()))
-        self.speed.text = "\(String(format: "%.1f", speed * 3.6)) (\(String(format: "%.1f", abs(distance) / abs(t) * 3.6)))"
-        self.distance.text = String(format: "%4.2f", distance / 1000)
+        let factor1 = metricSystem ? 3.6 : 2.23694
+        self.speed.text = "\(String(format: "%.1f", speed * factor1)) (\(String(format: "%.1f", abs(distance) / abs(t) * factor1)))"
+        let factor2 = metricSystem ? 1000 : 1609.344
+        self.distance.text = String(format: "%4.2f", distance / factor2)
         if dataCollector.recordingStarted {
             map.remove(myWay)
             let coordinates = dataCollector.getCoordinates()

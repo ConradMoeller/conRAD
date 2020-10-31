@@ -15,8 +15,10 @@ class CycleViewController: UIViewController {
 
     @IBOutlet weak var startStopBox: UIView!
     @IBOutlet weak var distanceBox: UIView!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var altBox: UIView!
     @IBOutlet weak var speedBox: UIView!
+    @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var rpmBox: UIView!
     @IBOutlet weak var hrBox: UIView!
     @IBOutlet weak var powerBox: UIView!
@@ -41,6 +43,7 @@ class CycleViewController: UIViewController {
     @IBOutlet weak var pwrValue: UILabel!
     @IBOutlet weak var cadenceValue: UILabel!
 
+    var metricSystem = true
     var timer: Timer!
     var log = true
 
@@ -57,7 +60,7 @@ class CycleViewController: UIViewController {
         UIUtil.applyBoxStyle(view: powerBox)
         UIUtil.applyBoxStyle(view: speedBox)
         UIUtil.applyBoxStyle(view: gearBox)
-
+        updateSystem()
         resetView()
     }
 
@@ -67,6 +70,7 @@ class CycleViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        updateSystem()
         if timer != nil {
             timer.invalidate()
         }
@@ -85,6 +89,18 @@ class CycleViewController: UIViewController {
         super.viewDidDisappear(animated)
         if dataCollector.recordingStarted {
             timer.invalidate()
+        }
+    }
+    
+    func updateSystem() {
+        let cyclist = MasterDataRepo.readCyclist()
+        metricSystem = cyclist.metricSystem
+        if metricSystem {
+            distanceLabel.text = "km"
+            speedLabel.text = "km/h"
+        } else {
+            distanceLabel.text = "mi"
+            speedLabel.text = "mph"
         }
     }
 
@@ -110,13 +126,15 @@ class CycleViewController: UIViewController {
         timeValue.text = formatter.string(for: Date(timeIntervalSince1970: duration))
 
         let distance = dataCollector.getDistance()
-        distanceValue.text = String(format: "%4.2f", distance / 1000)
+        let factor1 = metricSystem ? 1000 : 1609.344
+        distanceValue.text = String(format: "%4.2f", distance / factor1)
 
         altValue.text = String(format: "%4.0f", dataCollector.getAltitude())
         
         let speed = dataCollector.getSpeed()
-        speedValue.text = String(format: "%.1f", speed * 3.6)
-        avgSpeedValue.text = "(\(String(format: "%.1f", abs(distance) / abs(duration) * 3.6)))"
+        let factor2 = metricSystem ? 3.6 : 2.23694
+        speedValue.text = String(format: "%.1f", speed * factor2)
+        avgSpeedValue.text = "(\(String(format: "%.1f", abs(distance) / abs(duration) * factor2)))"
 
         let hrData = dataCollector.getHRData()
         hrValue.text = String(hrData.getValue())

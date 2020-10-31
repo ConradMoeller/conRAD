@@ -172,3 +172,6 @@
 
 /* Class = "UILabel"; text = "URL Tile Server"; ObjectID = "zml-Wn-I7M"; */
 "zml-Wn-I7M.text" = "URL Tile Server";
+
+/* Class = "UILabel"; text = "Metric System"; ObjectID = "GIa-FU-XRJ"; */
+"GIa-FU-XRJ.text" = "metrisches System";

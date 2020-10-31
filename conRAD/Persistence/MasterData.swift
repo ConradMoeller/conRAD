@@ -42,7 +42,7 @@ struct Cyclist: Encodable, Decodable {
     var dob: String
     var tileUrl: String
     var maxZoom: String
-
+    var metricSystem: Bool = true
 }
 
 struct Training: Encodable, Decodable {

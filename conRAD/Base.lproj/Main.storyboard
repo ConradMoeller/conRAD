@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -385,6 +386,7 @@
                         <outlet property="cadenceView" destination="SgH-3Y-WDZ" id="pE6-vW-YCB"/>
                         <outlet property="currentWattValue" destination="NeR-eW-G4b" id="35L-Bh-Bf9"/>
                         <outlet property="distanceBox" destination="JzK-MO-hfm" id="plE-rd-xRs"/>
+                        <outlet property="distanceLabel" destination="yd0-ps-fhb" id="LrQ-cs-4bo"/>
                         <outlet property="distanceValue" destination="Kue-zr-sYT" id="ELH-qe-sbM"/>
                         <outlet property="gearBox" destination="mfn-Wu-dyr" id="YNp-1y-CVu"/>
                         <outlet property="heartRateView" destination="Tmz-3h-UPB" id="usQ-A1-Xbz"/>
@@ -396,6 +398,7 @@
                         <outlet property="pwrValue" destination="xVT-9A-60u" id="jCM-Sx-crW"/>
                         <outlet property="rpmBox" destination="opm-hq-8vc" id="m5b-S4-nxB"/>
                         <outlet property="speedBox" destination="TWE-Md-uLu" id="HDY-q7-l6w"/>
+                        <outlet property="speedLabel" destination="RCo-KY-6eb" id="vpZ-U1-eSL"/>
                         <outlet property="speedValue" destination="z5c-M1-aKX" id="056-Vo-yQU"/>
                         <outlet property="startStopBox" destination="BoD-G9-hL4" id="qhn-4C-EZf"/>
                         <outlet property="timeValue" destination="5hQ-gw-fOg" id="fP2-6g-RAB"/>
@@ -519,12 +522,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kc2-Oj-xnp">
+                                <rect key="frame" x="306" y="501.5" width="51" height="31"/>
+                                <color key="onTintColor" systemColor="linkColor"/>
+                                <connections>
+                                    <action selector="metricSystemChanged:" destination="9G4-ey-o68" eventType="valueChanged" id="ieI-jl-50w"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metric System " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-FU-XRJ">
+                                <rect key="frame" x="20" y="502" width="160.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WXN-Gl-bjn"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ylQ-sp-jnF" firstAttribute="top" secondItem="qBo-1k-29g" secondAttribute="bottom" constant="30" id="0LT-Zc-DYO"/>
                             <constraint firstItem="NmE-Dr-kw3" firstAttribute="height" secondItem="nX7-Er-7gY" secondAttribute="height" id="17D-E1-iPw"/>
+                            <constraint firstItem="GIa-FU-XRJ" firstAttribute="centerY" secondItem="kc2-Oj-xnp" secondAttribute="centerY" id="1WH-t1-Jma"/>
                             <constraint firstItem="yGE-Y6-Gc0" firstAttribute="leading" secondItem="ylQ-sp-jnF" secondAttribute="leading" id="2R8-Mx-kXq"/>
                             <constraint firstItem="w3u-4N-KGQ" firstAttribute="centerY" secondItem="Jd6-ic-50O" secondAttribute="centerY" id="4Af-Nl-Nhr"/>
                             <constraint firstItem="qBo-1k-29g" firstAttribute="width" secondItem="nX7-Er-7gY" secondAttribute="width" constant="-20" id="7CK-TP-1of"/>
@@ -546,11 +563,14 @@
                             <constraint firstItem="w3u-4N-KGQ" firstAttribute="top" secondItem="Mgk-ja-F8d" secondAttribute="bottom" constant="29" id="T03-Iv-4fF"/>
                             <constraint firstItem="NmE-Dr-kw3" firstAttribute="top" secondItem="WXN-Gl-bjn" secondAttribute="top" id="V4c-8h-fGM"/>
                             <constraint firstItem="r4S-1j-4gy" firstAttribute="leading" secondItem="EHy-Ib-4gq" secondAttribute="leading" id="XBZ-7c-D0P"/>
+                            <constraint firstItem="kc2-Oj-xnp" firstAttribute="trailing" secondItem="w3u-4N-KGQ" secondAttribute="trailing" id="XxP-90-WFv"/>
                             <constraint firstItem="Mgk-ja-F8d" firstAttribute="centerX" secondItem="nX7-Er-7gY" secondAttribute="centerX" id="ZbY-Fu-dK0"/>
                             <constraint firstItem="cDY-rA-ha6" firstAttribute="centerY" secondItem="r4S-1j-4gy" secondAttribute="centerY" id="a1e-ou-vGK"/>
                             <constraint firstItem="NmE-Dr-kw3" firstAttribute="leading" secondItem="WXN-Gl-bjn" secondAttribute="leading" id="bPO-2s-SWT"/>
                             <constraint firstItem="ylQ-sp-jnF" firstAttribute="centerY" secondItem="EHy-Ib-4gq" secondAttribute="centerY" id="cZt-d0-3FT"/>
                             <constraint firstItem="K9g-Mv-ZeH" firstAttribute="top" secondItem="taf-xy-A64" secondAttribute="bottom" constant="13" id="ecR-rp-m95"/>
+                            <constraint firstItem="GIa-FU-XRJ" firstAttribute="top" secondItem="Jd6-ic-50O" secondAttribute="bottom" constant="29" id="gHc-Ku-zZd"/>
+                            <constraint firstItem="GIa-FU-XRJ" firstAttribute="leading" secondItem="Jd6-ic-50O" secondAttribute="leading" id="hG4-nv-pgJ"/>
                             <constraint firstItem="qBo-1k-29g" firstAttribute="top" secondItem="K9g-Mv-ZeH" secondAttribute="bottom" constant="10" id="jaO-Xo-idG"/>
                             <constraint firstItem="ylQ-sp-jnF" firstAttribute="leading" secondItem="K9g-Mv-ZeH" secondAttribute="leading" id="kCs-HN-3c9"/>
                             <constraint firstItem="NmE-Dr-kw3" firstAttribute="width" secondItem="nX7-Er-7gY" secondAttribute="width" id="mBX-Ca-KrZ"/>
@@ -565,6 +585,7 @@
                         <outlet property="headerBox" destination="taf-xy-A64" id="kuU-Ka-NaO"/>
                         <outlet property="maxHR" destination="r4S-1j-4gy" id="nbx-83-x9a"/>
                         <outlet property="maxZoom" destination="w3u-4N-KGQ" id="qXH-fR-vCb"/>
+                        <outlet property="metricSystem" destination="kc2-Oj-xnp" id="Xwp-Ra-uzy"/>
                         <outlet property="tileUrl" destination="Mgk-ja-F8d" id="Wkh-2R-b6a"/>
                         <outlet property="userName" destination="qBo-1k-29g" id="4zx-WD-A4T"/>
                         <outlet property="weight" destination="EHy-Ib-4gq" id="2sk-9K-ZCC"/>
@@ -946,9 +967,11 @@
                         <outlet property="bottomLeftBox" destination="tS7-HJ-Cjt" id="23b-gf-4ho"/>
                         <outlet property="bottomRightBox" destination="bzd-az-JvQ" id="HRA-YY-sRI"/>
                         <outlet property="distance" destination="Gnq-nl-2Lg" id="ocq-bu-eBY"/>
+                        <outlet property="distanceLabel" destination="VcI-cw-knP" id="y2M-1K-nzU"/>
                         <outlet property="downloadProgress" destination="y8a-0K-UWL" id="SrA-q9-aZs"/>
                         <outlet property="map" destination="LJn-4s-NUy" id="ovO-Ni-pni"/>
                         <outlet property="speed" destination="10k-cU-pYW" id="Gou-oa-ogW"/>
+                        <outlet property="speedLabel" destination="tUR-jc-TP4" id="lJw-L4-Cgj"/>
                         <outlet property="time" destination="yTG-7A-OX6" id="iw1-yC-ifH"/>
                         <outlet property="topBox" destination="BQH-9g-ekI" id="UmE-pC-oYY"/>
                     </connections>
@@ -1256,5 +1279,8 @@
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <image name="usersettings" width="30" height="30"/>
         <image name="watts" width="25" height="25"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
