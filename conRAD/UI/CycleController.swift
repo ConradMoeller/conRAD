@@ -139,8 +139,10 @@ class CycleViewController: UIViewController {
         let speed = dataCollector.getSpeed()
         let factor2 = metricSystem ? 3.6 : 2.23694
         speedValue.text = String(format: "%.1f", speed * factor2)
-        avgSpeedValue.text = "(\(String(format: "%.1f", abs(distance) / abs(duration) * factor2)))"
-
+        if abs(duration) > 0 {
+            avgSpeedValue.text = "(\(String(format: "%.1f", abs(distance) / abs(duration) * factor2)))"
+        }
+        
         let hrData = dataCollector.getHRData()
         hrValue.text = String(hrData.getValue())
 

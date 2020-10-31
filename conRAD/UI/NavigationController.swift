@@ -91,7 +91,8 @@ class NavigationViewController: UIViewController {
         let distance = dataCollector.getDistance()
         self.time.text = formatter.string(for: Date(timeIntervalSince1970: dataCollector.getDuration()))
         let factor1 = metricSystem ? 3.6 : 2.23694
-        self.speed.text = "\(String(format: "%.1f", speed * factor1)) (\(String(format: "%.1f", abs(distance) / abs(t) * factor1)))"
+        let avg = abs(t) > 0 ? String(format: "%.1f", abs(distance) / abs(t) * factor1) : "--"
+        self.speed.text = "\(String(format: "%.1f", speed * factor1)) (\(avg))"
         let factor2 = metricSystem ? 1000 : 1609.344
         self.distance.text = String(format: "%4.2f", distance / factor2)
         if dataCollector.recordingStarted {
