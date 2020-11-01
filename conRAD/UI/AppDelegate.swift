@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MasterDataRepo.writeSettings(settings: setup)
         }
         if FileTool.createFolder(name: "cyclist") {
-            let cyclist = Cyclist(name: "Your Name", weigth: "0", maxHR: "0", FTP: "0", dob: "", tileUrl: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png", maxZoom: "15")
+            let cyclist = Cyclist(name: "name", weigth: "0", maxHR: "0", FTP: "0", dob: "", tileUrl: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png", maxZoom: "15")
             MasterDataRepo.writeCyclist(cyclist: cyclist)
         }
         if FileTool.createFolder(name: "bicycles") {

@@ -32,8 +32,8 @@ class DeviceViewController: UIViewController {
     @IBOutlet weak var battery: UILabel!
     @IBOutlet weak var unpairbutton: UIButton!
     
-    var currentId: String!
-    var currentName: String!
+    var currentId: String = ""
+    var currentName: String = ""
     
     var nextSetupStep: (() -> Void)!
     var startScan: ((_: BLEDeviceDiscoverDelegate) -> Void)!

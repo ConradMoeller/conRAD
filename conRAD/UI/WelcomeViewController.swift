@@ -13,20 +13,35 @@ class WelcomeViewController: UIViewController {
 
     var nextSetupStep: (() -> Void)!
 
+    @IBOutlet weak var cyclistLabel: UILabel!
     @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var weight: UITextField!
+    @IBOutlet weak var hrLabel: UILabel!
     @IBOutlet weak var maxhr: UITextField!
+    @IBOutlet weak var ftpLabel: UILabel!
     @IBOutlet weak var ftp: UITextField!
+    @IBOutlet weak var bikenameLabel: UILabel!
     @IBOutlet weak var bikename: UITextField!
+    @IBOutlet weak var wheelsizeLabel: UILabel!
     @IBOutlet weak var wheelsize: UITextField!
+    @IBOutlet weak var crankLabel: UILabel!
     @IBOutlet weak var crank1: UITextField!
     @IBOutlet weak var crank2: UITextField!
+    @IBOutlet weak var sprocketsLabel: UILabel!
     @IBOutlet weak var sprockets: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let dismissButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(WelcomeViewController.done(button:)))
         self.navigationItem.rightBarButtonItem = dismissButton
+        cyclistLabel.text = NSLocalizedString("Cyclist", comment: "no comment")
+        weightLabel.text = NSLocalizedString("Weight", comment: "no comment")
+        hrLabel.text = NSLocalizedString("max HR", comment: "no comment")
+        bikenameLabel.text = NSLocalizedString("Bicyle Name", comment: "no comment")
+        wheelsizeLabel.text = NSLocalizedString("Wheel Size", comment: "no comment")
+        crankLabel.text = NSLocalizedString("Crank", comment: "no comment")
+        sprocketsLabel.text = NSLocalizedString("Sprockets", comment: "no comment")
     }
 
     override func viewDidAppear(_ animated: Bool) {

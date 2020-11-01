@@ -11,15 +11,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="conRAD" customModuleProvider="target">
             <connections>
                 <outlet property="bikename" destination="Cmr-wB-tWh" id="vU2-Bs-hX2"/>
+                <outlet property="bikenameLabel" destination="Y1z-fD-pZA" id="z2z-ea-Oiv"/>
                 <outlet property="crank1" destination="jDb-au-QDE" id="Vl8-La-yti"/>
                 <outlet property="crank2" destination="VAG-1r-5Tc" id="ONa-eK-cq7"/>
+                <outlet property="crankLabel" destination="cwJ-qL-Ang" id="3x9-xD-SQk"/>
+                <outlet property="cyclistLabel" destination="2AX-ZY-ubv" id="ixm-2a-3a4"/>
                 <outlet property="ftp" destination="POO-OW-MzS" id="orU-Le-FhC"/>
+                <outlet property="ftpLabel" destination="bCI-nW-RZZ" id="Phq-Se-JcZ"/>
+                <outlet property="hrLabel" destination="nTf-B6-aas" id="cRc-cN-MKc"/>
                 <outlet property="maxhr" destination="kGD-4v-iir" id="pyF-Y4-1Zj"/>
                 <outlet property="name" destination="6ux-Lx-w6L" id="NZR-bR-Jos"/>
                 <outlet property="sprockets" destination="JaL-6m-ljk" id="O0U-Qr-2fc"/>
+                <outlet property="sprocketsLabel" destination="u9t-8k-1lV" id="syc-kX-Lck"/>
                 <outlet property="view" destination="iN0-l3-epB" id="H4u-7u-cpb"/>
                 <outlet property="weight" destination="N6s-YM-gYj" id="ax6-m0-jBV"/>
+                <outlet property="weightLabel" destination="ZQ4-Q2-qhj" id="OZQ-yZ-MkK"/>
                 <outlet property="wheelsize" destination="yXp-WG-t5k" id="Zwg-jK-IiU"/>
+                <outlet property="wheelsizeLabel" destination="95x-QQ-Axj" id="gli-DL-OPY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

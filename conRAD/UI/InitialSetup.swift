@@ -20,7 +20,7 @@ class InitialSetuptNavigation: UINavigationController {
     convenience init() {
         let step0vc = WelcomeViewController()
         self.init(rootViewController: step0vc)
-        step0vc.title = "Welcome"
+        step0vc.title = NSLocalizedString("Welcome", comment: "no comment")
         step0vc.nextSetupStep = step1
         popToRootViewController(animated: true)
         unpairAll()
@@ -38,8 +38,8 @@ class InitialSetuptNavigation: UINavigationController {
     }
 
     func step1() {
-        step1vc.title = "HR Sensor"
-        step1vc.barItemTitle = "Next"
+        step1vc.title = NSLocalizedString("HR Sensor", comment: "no comment");
+        step1vc.barItemTitle = NSLocalizedString("Next", comment: "no comment")
         step1vc.startScan = bleKit.startScanHeartRateDevices
         step1vc.stopScan = bleKit.stopScanHeartRateDevices
         step1vc.pair = pairHRDevice
@@ -63,8 +63,8 @@ class InitialSetuptNavigation: UINavigationController {
     }
 
     func step2() {
-        step2vc.title = "Powermeter"
-        step2vc.barItemTitle = "Next"
+        step2vc.title = NSLocalizedString("Powermeter", comment: "no comment")
+        step2vc.barItemTitle = NSLocalizedString("Next", comment: "no comment")
         step2vc.startScan = bleKit.startScanPowerDevices
         step2vc.stopScan = bleKit.stopScanPowerDevices
         step2vc.pair = pairHRDevice
@@ -88,8 +88,8 @@ class InitialSetuptNavigation: UINavigationController {
     }
 
     func step3() {
-        step3vc.title = "Speed Sensor"
-        step3vc.barItemTitle = "Next"
+        step3vc.title = NSLocalizedString("Speed Sensor", comment: "no comment")
+        step3vc.barItemTitle = NSLocalizedString("Next", comment: "no comment")
         step3vc.startScan = bleKit.startScanCSCDevices
         step3vc.stopScan = bleKit.stopScanCSCDevices
         step3vc.pair = pairHRDevice
