@@ -34,11 +34,21 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-up-Bgj">
+                                        <rect key="frame" x="37.5" y="60" width="300" height="5"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="cH9-FO-HE3"/>
+                                        </constraints>
+                                    </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="ceL-up-Bgj" firstAttribute="width" secondItem="BoD-G9-hL4" secondAttribute="width" multiplier="0.8" id="1eo-Pe-REm"/>
                                     <constraint firstAttribute="height" constant="75" id="Srm-qL-yph"/>
                                     <constraint firstItem="5hQ-gw-fOg" firstAttribute="centerX" secondItem="BoD-G9-hL4" secondAttribute="centerX" id="aTI-ah-1Tt"/>
+                                    <constraint firstItem="ceL-up-Bgj" firstAttribute="centerX" secondItem="BoD-G9-hL4" secondAttribute="centerX" id="gnH-KX-LNN"/>
+                                    <constraint firstItem="ceL-up-Bgj" firstAttribute="centerY" secondItem="BoD-G9-hL4" secondAttribute="centerY" constant="25" id="kqu-G7-pj1"/>
                                     <constraint firstItem="5hQ-gw-fOg" firstAttribute="centerY" secondItem="BoD-G9-hL4" secondAttribute="centerY" id="tvO-t9-3gh"/>
                                 </constraints>
                             </view>
