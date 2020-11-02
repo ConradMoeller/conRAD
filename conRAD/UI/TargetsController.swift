@@ -334,7 +334,7 @@ extension TargetsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TargetsViewController: ListViewDelegate {
-        
+    
     func getFileList() -> [(id: String, name: String)] {
         var result = [(id: String, name: String)]()
         let trainings = MasterDataRepo.readTrainings()
@@ -342,6 +342,10 @@ extension TargetsViewController: ListViewDelegate {
             result.append((training.id, training.name))
         }
         return result
+    }
+    
+    func getSelectedFile() -> String {
+        return MasterDataRepo.readTraining().id
     }
     
     func setSelectedFile(id: String) {

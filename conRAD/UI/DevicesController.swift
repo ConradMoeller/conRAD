@@ -210,6 +210,10 @@ extension DevicesViewController: ListViewDelegate {
         return result
     }
     
+    func getSelectedFile() -> String {
+        return MasterDataRepo.readBicycle().id
+    }
+    
     func setSelectedFile(id: String) {
         var settings = MasterDataRepo.readSettings()
         settings.bike = id

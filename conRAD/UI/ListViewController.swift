@@ -11,6 +11,7 @@ import UIKit
 protocol ListViewDelegate {
     
     func getFileList() -> [(id: String, name: String)]
+    func getSelectedFile() -> String
     func setSelectedFile(id: String)
     func removeFile(id: String)
 }
@@ -81,6 +82,15 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return foundFileNames.count
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if listViewDelegate.getSelectedFile() == foundFileIds[indexPath.row] {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+    }
+
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "DeviceCell"
@@ -100,7 +110,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == .delete && listViewDelegate.getSelectedFile() != foundFileIds[indexPath.row] {
             listViewDelegate.removeFile(id: foundFileIds[indexPath.row])
             foundFileIds.remove(at: indexPath.row)
             foundFileNames.remove(at: indexPath.row)
