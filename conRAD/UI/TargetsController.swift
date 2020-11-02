@@ -19,12 +19,11 @@ class TargetsViewController: UIViewController {
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnOpen: UIButton!
 
-    @IBOutlet weak var bpmAvg: UITextField!
-    @IBOutlet weak var wattAvg: UITextField!
-    @IBOutlet weak var rpmAvg: UITextField!
-
+   
+    @IBOutlet weak var trainingName: UITextField!
+    @IBOutlet weak var intervalTable: UITableView!
+    
     @IBOutlet weak var btBox: UIView!
-
     @IBOutlet weak var btSwitch: UISwitch!
     @IBOutlet weak var isHRConnected: UIImageView!
     @IBOutlet weak var isCadenceConnected: UIImageView!
@@ -33,10 +32,10 @@ class TargetsViewController: UIViewController {
 
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnStop: UIButton!
-
     @IBOutlet weak var stravaUpload: UIActivityIndicatorView!
 
     let trainingsList = ListViewNavigation()
+    let intervalEdit = IntervalViewNavigation()
     
     var dataCollector = DataCollectionService.getInstance()
     
@@ -44,33 +43,37 @@ class TargetsViewController: UIViewController {
     var i = 0
 
     var fileName: UITextField?
+    var training: Training!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sleep(0)
-        bpmAvg.delegate = self
-        wattAvg.delegate = self
-        rpmAvg.delegate = self
-        trainingsList.listView.listViewDelegate = self
-        readSettings()
-
+        
         UIUtil.applyBoxStyle(view: headerBox)
         UIUtil.applyBoxStyle(view: btBox)
+
+        trainingsList.listView.listViewDelegate = self
+        
+        trainingName.delegate = self
+        
+        intervalTable.backgroundColor = UIColor.clear
+        intervalTable.delegate = self
+        intervalTable.dataSource = self
+        
+        intervalEdit.intervalView.updateTraining = writeTraining
+        
+        readSettings()
     }
 
     private func readSettings() {
-        let training = MasterDataRepo.readTraining()
-        bpmAvg.text = training.hr
-        wattAvg.text = training.power
-        rpmAvg.text = training.cadence
+        training = MasterDataRepo.readTraining()
+        trainingName.text = training.name
+        intervalTable.reloadData()
     }
 
-    private func writeSettings() {
-        var training = MasterDataRepo.readTraining()
-        training.hr = bpmAvg.text!
-        training.power = wattAvg.text!
-        training.cadence = rpmAvg.text!
+    private func writeTraining(training: Training) {
         MasterDataRepo.writeTraining(training: training)
+        self.training = MasterDataRepo.readTraining()
+        intervalTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,19 +95,20 @@ class TargetsViewController: UIViewController {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        writeSettings()
+        training.name = trainingName.text ?? training.name
+        writeTraining(training: training)
         if btResponseTimer != nil {
             btResponseTimer.invalidate()
         }
         super.viewDidDisappear(animated)
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        bpmAvg.resignFirstResponder()
-        wattAvg.resignFirstResponder()
-        rpmAvg.resignFirstResponder()
-        writeSettings()
+        trainingName.resignFirstResponder()
+        training.name = trainingName.text ?? training.name
+        writeTraining(training: training)
     }
+
 
     @IBAction func newFilePushed(_ sender: Any) {
         let popup = UIAlertController(title: NSLocalizedString("New Training", comment: "no comment"), message: NSLocalizedString("Type in the name!", comment: "no comment"), preferredStyle: .alert)
@@ -136,7 +140,25 @@ class TargetsViewController: UIViewController {
     @IBAction func openFilePushed(_ sender: Any) {
         present(trainingsList, animated: true, completion: nil)
     }
-
+    
+    @IBAction func copyTrainingPushed(_ sender: Any) {
+        training = training.copy()
+        writeTraining(training: training)
+        readSettings()
+    }
+    
+    @IBAction func editListPushed(_ sender: Any) {
+        intervalTable.isEditing = !intervalTable.isEditing
+    }
+    
+    @IBAction func addIntervalPushed(_ sender: Any) {
+        training.intervals.append(Interval(name: "interval \(training.intervals.count + 1)", hr: "0", power: "0", cadence: "0", duration: "0"))
+        training.currentInterval = training.intervals.count - 1
+        intervalEdit.intervalView.training = training
+        intervalEdit.intervalView.isNew = true
+        present(intervalEdit, animated: true, completion: nil)
+    }
+    
     @IBAction func switchChanged(_ sender: Any) {
 
         if btSwitch.isOn {
@@ -247,23 +269,67 @@ class TargetsViewController: UIViewController {
 }
 
 extension TargetsViewController: UITextFieldDelegate {
-
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let  char = string.cString(using: String.Encoding.utf8)!
-        let isBackSpace = strcmp(char, "\\b")
-        if isBackSpace == -92 {
-            return true
-        }
-        if Int(string) == nil {
-            return false
-        }
-        return true
-    }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        writeSettings()
+        training.name = trainingName.text ?? training.name
+        writeTraining(training: training)
         return true
+    }
+}
+
+extension TargetsViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return training.intervals.count
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.white
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = training.intervals[sourceIndexPath.row]
+        training.intervals.remove(at: sourceIndexPath.row)
+        training.intervals.insert(movedObject, at: destinationIndexPath.row)
+        writeTraining(training: training)
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "DeviceCell"
+        var cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        if let reuseCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = reuseCell
+        }
+        cell.textLabel?.text = ("\(training.intervals[indexPath.row].name) (\(training.intervals[indexPath.row].duration) min)")
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        training.currentInterval = indexPath.row
+        intervalEdit.intervalView.training = training
+        intervalEdit.intervalView.isNew = false
+        present(intervalEdit, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete && training.intervals.count > 1 {
+            training.intervals.remove(at: indexPath.row)
+            intervalTable.deleteRows(at: [indexPath], with: .fade)
+            writeTraining(training: training)
+        }
     }
 }
 

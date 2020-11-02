@@ -55,6 +55,10 @@ class NavigationViewController: UIViewController {
         map.add(myWay)
         map.delegate = self
         map.useCache(MyMapCache.getInstance())
+ 
+        if !dataCollector.isGPSConnected() {
+            dataCollector.connectGPS()
+        }
         map.setUserTrackingMode(.followWithHeading, animated: true)
     }
 

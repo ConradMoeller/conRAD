@@ -29,17 +29,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MasterDataRepo.writeBicycle(bicycle: bike)
         }
         if FileTool.createFolder(name: "trainings") {
-            var training = MasterDataRepo.newTraining()
-            training.name = "training 1"
-            training.hr = "130"
-            training.power = "150"
-            training.cadence = "90"
-            MasterDataRepo.writeTraining(training: training)
+            preInstallFTPTest()
         }
         _ = FileTool.createFolder(name: "sessions")
         _ = FileTool.createFolder(name: "gpx")
         ServiceController.startServices()
         return true
+    }
+    
+    func preInstallFTPTest() {
+        var training = MasterDataRepo.newTraining()
+        training.name = "FTP Test"
+        training.hr = "100"
+        training.power = "100"
+        training.cadence = "80"
+        training.duration = "20"
+        training.intervals[training.currentInterval].name = "warm up"
+        let hc = Interval(name: "100 rpm", hr: "130", power: "100", cadence: "100", duration: "1")
+        let pause = Interval(name: "slow down", hr: "130", power: "100", cadence: "80", duration: "1")
+        training.intervals.append(hc)
+        training.intervals.append(pause)
+        training.intervals.append(hc)
+        training.intervals.append(pause)
+        training.intervals.append(hc)
+        training.intervals.append(pause)
+        let test = Interval(name: "ftp test", hr: "180", power: "200", cadence: "90", duration: "20")
+        training.intervals.append(test)
+        let pause2 = Interval(name: "cool down", hr: "130", power: "100", cadence: "80", duration: "15")
+        training.intervals.append(pause2)
+        MasterDataRepo.writeTraining(training: training)
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {

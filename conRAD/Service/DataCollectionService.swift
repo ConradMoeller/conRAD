@@ -68,6 +68,9 @@ class DataCollectionService {
     private var logFile: ActivityLogFile!
     private let logDateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000Z'"
     
+    var training: Training!
+    var intervalChange: ((_: String) -> Void)!
+    
     private var count = 0
 
     private init() {
@@ -114,10 +117,13 @@ class DataCollectionService {
             motionManager.accelerometerUpdateInterval = 0.5
             motionManager.startAccelerometerUpdates()
         }
+        training = MasterDataRepo.readTraining()
+        training.currentInterval = 0
         updateTrainingLimits()
         recordingStarted = true
         resetTotals()
         startTime = Date()
+        duration = 0.0
         df.timeZone = TimeZone.current
         df.dateFormat = "yyyy-MM-dd-HH-mm"
         logFile = ActivityLogFile(name: "sessions/conRAD-" + df.string(from: Date()))
@@ -196,6 +202,14 @@ class DataCollectionService {
 
     func isSpeedDeviceConnected() -> Bool {
         return cscConnector.isDeviceConnected()
+    }
+    
+    func isGPSConnected() -> Bool {
+        return gpsConnector.isConnected()
+    }
+    
+    func connectGPS() {
+        gpsConnector.connect()
     }
 
     func getHRData() -> IntMeterData {
@@ -283,6 +297,15 @@ class DataCollectionService {
     func getCoordinates() -> [CLLocationCoordinate2D] {
         return coordinates
     }
+    
+    func getIntervalProgress() -> Float {
+        if duration < 0.5 {
+            return 0.0
+        }
+        let a:Float = Float(duration - training.getIntervalStart() * 60)
+        let b:Float = (Float(training.duration) ?? 1.0) * 60
+        return a / b
+    }
 
     private func evaluateAltitude() {
         altitude = round(gpsConnector.getAltitude() * 1000) / 1000
@@ -306,6 +329,12 @@ class DataCollectionService {
             record.data[DataCollectionService.METRIC_POWER] = String(powerData.getValue())
             record.data[DataCollectionService.METRIC_WHEELRPM] = String(getWheelRPMData().getValue())
             logFile.addRecord(record: record)
+            if training.currentInterval < training.intervals.count - 1 && getIntervalProgress() >= 1.0 {
+                training.currentInterval = training.currentInterval + 1
+                if intervalChange != nil {
+                    intervalChange(training.intervals[training.currentInterval].name)
+                }
+            }
         }
     }
 

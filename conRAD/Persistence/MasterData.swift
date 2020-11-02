@@ -91,6 +91,23 @@ struct Training: Encodable, Decodable {
             intervals[currentInterval].duration = newValue
         }
     }
+    
+    func copy() -> Training {
+        let result = Training(id: UUID().uuidString, name: name + "_", intervals: intervals, currentInterval: 0)
+        return result
+    }
+    
+    func getIntervalStart() -> Double {
+        var result = 0
+        var count = 0
+        for i in intervals {
+            if count < currentInterval {
+                result += (Int(i.duration) ?? 0) + (Int(i.duration_s) ?? 0)
+            }
+            count += 1
+        }
+        return Double(result)
+    }
 
 }
 
@@ -101,5 +118,6 @@ struct Interval: Encodable, Decodable {
     var power: String
     var cadence: String
     var duration: String
+    var duration_s = "0"
     
 }

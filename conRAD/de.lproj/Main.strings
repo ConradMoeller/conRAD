@@ -57,7 +57,7 @@
 "LSg-Hm-jMC.text" = "Ritzel";
 
 /* Class = "UIButton"; normalTitle = " Power Meter"; ObjectID = "MH0-Hq-ugt"; */
-"MH0-Hq-ugt.normalTitle" = " Power Meter";
+"MH0-Hq-ugt.normalTitle" = " Leistungsmesser";
 
 /* Class = "UILabel"; text = "W"; ObjectID = "Mci-6Q-fz0"; */
 "Mci-6Q-fz0.text" = "W";
@@ -69,7 +69,7 @@
 "Nqd-bk-X8N.text" = "Einstellungen";
 
 /* Class = "UIButton"; normalTitle = " HR Meter"; ObjectID = "QtF-tt-jdJ"; */
-"QtF-tt-jdJ.normalTitle" = " HR Meter";
+"QtF-tt-jdJ.normalTitle" = " Herzfrequenzsensor";
 
 /* Class = "UILabel"; text = "km/h"; ObjectID = "RCo-KY-6eb"; */
 "RCo-KY-6eb.text" = "km/h";
@@ -114,7 +114,7 @@
 "jea-NL-3dh.text" = "Leistung";
 
 /* Class = "UIButton"; normalTitle = " CSC Meter"; ObjectID = "mOI-Fx-cUx"; */
-"mOI-Fx-cUx.normalTitle" = " CSC Meter";
+"mOI-Fx-cUx.normalTitle" = " Geschwindigkeitssensor";
 
 /* Class = "UITextField"; text = "2000"; ObjectID = "nHH-9P-7Ii"; */
 "nHH-9P-7Ii.text" = "2000";
@@ -171,7 +171,10 @@
 "z5c-M1-aKX.text" = "88.8";
 
 /* Class = "UILabel"; text = "URL Tile Server"; ObjectID = "zml-Wn-I7M"; */
-"zml-Wn-I7M.text" = "URL Tile Server";
+"zml-Wn-I7M.text" = "Tile Server";
 
 /* Class = "UILabel"; text = "Metric System"; ObjectID = "GIa-FU-XRJ"; */
 "GIa-FU-XRJ.text" = "metrisches System";
+
+/* Class = "UIButton"; normalTitle = "Copy"; ObjectID = "zlF-mF-yno"; */
+"zlF-mF-yno.normalTitle" = "Kopieren";

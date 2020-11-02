@@ -6,6 +6,7 @@
 //  Copyright © 2018 Conrad Moeller. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 import CoreLocation
 
@@ -29,6 +30,7 @@ class CycleViewController: UIViewController {
     @IBOutlet weak var cadenceView: MeterDataProgressView!
 
     @IBOutlet weak var timeValue: UILabel!
+    @IBOutlet weak var intervalProgress: UIProgressView!
     @IBOutlet weak var distanceValue: UILabel!
     @IBOutlet weak var speedValue: UILabel!
     @IBOutlet weak var avgSpeedValue: UILabel!
@@ -81,6 +83,7 @@ class CycleViewController: UIViewController {
         }
         if dataCollector.recordingStarted {
             timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateAll), userInfo: nil, repeats: true)
+            dataCollector.intervalChange = alertIntervalChange
             updateAll()
         } else {
             resetView()
@@ -111,6 +114,7 @@ class CycleViewController: UIViewController {
 
     func resetView() {
         timeValue.text = "00:00:00"
+        intervalProgress.isHidden = true
         distanceValue.text = "0.00"
         speedValue.text = "0.0"
         optSpeed.text = NSLocalizedString("Gear", comment: "no comment")
@@ -167,12 +171,17 @@ class CycleViewController: UIViewController {
     }
 
     func initProgress() {
+        intervalProgress.progress = 0.0
         heartRateView.setConnectionState(isConnected: dataCollector.isHRDeviceConnected())
         wattageView.setConnectionState(isConnected: dataCollector.isPowerMeterDeviceConnected())
         cadenceView.setConnectionState(isConnected: dataCollector.isCadenceDeviceConnected())
     }
     
     func updateProgress() {
+        
+        intervalProgress.isHidden = false
+        intervalProgress.progress = dataCollector.getIntervalProgress()
+        
         let hrData = dataCollector.getHRData()
         hrValue.text = String(hrData.getValue())
         heartRateView.updateProgress(isConnected: dataCollector.isHRDeviceConnected(), data: hrData)
@@ -186,6 +195,15 @@ class CycleViewController: UIViewController {
         let cadenceData = dataCollector.getCadenceData()
         cadenceValue.text = String(cadenceData.getValue())
         cadenceView.updateProgress(isConnected: dataCollector.isCadenceDeviceConnected(), data: cadenceData)
+    }
+    
+    func alertIntervalChange(interval: String) {
+        let popup = UIAlertController(title: NSLocalizedString("Next Interval: ", comment: "no comment") + interval, message: "", preferredStyle: .alert)
+        present(popup, animated: true, completion: nil)
+        AudioServicesPlaySystemSound(SystemSoundID(1025))
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: { _ in
+            popup.dismiss(animated: true, completion: nil)
+        })
     }
 
 }
