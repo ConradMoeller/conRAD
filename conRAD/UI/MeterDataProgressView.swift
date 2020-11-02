@@ -104,7 +104,7 @@ import AVFoundation
     func updateProgress(isConnected: Bool, data: ProgressDataProvider) {
 
         setConnectionState(isConnected: isConnected)
-        if isConnected {
+        if isConnected && data.getTarget() > 0 {
             let progress = data.getProgressValue()
             if progress < -99.0 {
                 return
@@ -146,5 +146,6 @@ import AVFoundation
 }
 
 protocol ProgressDataProvider {
+    func getTarget() -> Int
     func getProgressValue() -> Double
 }

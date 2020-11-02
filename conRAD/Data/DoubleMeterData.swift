@@ -124,6 +124,10 @@ class DoubleMeterData: ProgressDataProvider {
     func getTarget() -> Double {
         return target
     }
+    
+    func getTarget() -> Int {
+        return Int(target)
+    }
 
     func setTolerance(tolerance: Double) {
         self.tolerance = tolerance
