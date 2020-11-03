@@ -49,6 +49,7 @@ class TargetsViewController: UIViewController {
         super.viewDidLoad()
         
         UIUtil.applyBoxStyle(view: headerBox)
+        UIUtil.applyBoxStyle(view: intervalTable)
         UIUtil.applyBoxStyle(view: btBox)
 
         trainingsList.listView.listViewDelegate = self

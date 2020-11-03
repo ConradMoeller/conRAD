@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MasterDataRepo.writeBicycle(bicycle: bike)
         }
         if FileTool.createFolder(name: "trainings") {
-            preInstallFTPTest()
+            TrainingInstaller.installFTPTest()
         }
         _ = FileTool.createFolder(name: "sessions")
         _ = FileTool.createFolder(name: "gpx")
@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func preInstallFTPTest() {
         var training = MasterDataRepo.newTraining()
+        training.id = "FTP_Test"
         training.name = "FTP Test"
         training.hr = "100"
         training.power = "100"

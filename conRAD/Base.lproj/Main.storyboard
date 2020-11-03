@@ -1044,7 +1044,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcl-90-42k" userLabel="BT">
-                                <rect key="frame" x="0.0" y="421" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="411" width="375" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="R6M-Vg-dLj">
                                         <rect key="frame" x="40" y="17.5" width="25" height="25"/>
@@ -1102,7 +1102,7 @@
                                             <action selector="newFilePushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="lho-yz-JeX"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffW-46-N0G">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffW-46-N0G">
                                         <rect key="frame" x="97.5" y="20.5" width="180" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1123,7 +1123,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43t-zB-YCc">
-                                <rect key="frame" x="197.5" y="512" width="48" height="48"/>
+                                <rect key="frame" x="197.5" y="502" width="48" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" image="strava"/>
                                 <connections>
@@ -1138,21 +1138,21 @@
                                 </constraints>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDY-b9-isp">
-                                <rect key="frame" x="57.5" y="511" width="50" height="50"/>
+                                <rect key="frame" x="57.5" y="501" width="50" height="50"/>
                                 <state key="normal" image="start-cycling"/>
                                 <connections>
                                     <action selector="startPushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="Kvk-gm-c4j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPt-JR-HCW">
-                                <rect key="frame" x="127.5" y="511" width="50" height="50"/>
+                                <rect key="frame" x="127.5" y="501" width="50" height="50"/>
                                 <state key="normal" image="stop-cycling"/>
                                 <connections>
                                     <action selector="stopPushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="GJE-gO-xjO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmd-Vi-8i6">
-                                <rect key="frame" x="265.5" y="511" width="50" height="50"/>
+                                <rect key="frame" x="265.5" y="501" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" image="file-open"/>
                                 <connections>
@@ -1160,7 +1160,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KDC-yH-jx2">
-                                <rect key="frame" x="10" y="131" width="355" height="280"/>
+                                <rect key="frame" x="0.0" y="131" width="375" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="Aci-wH-LCq"/>
@@ -1206,8 +1206,8 @@
                             <constraint firstItem="43t-zB-YCc" firstAttribute="leading" secondItem="bPt-JR-HCW" secondAttribute="trailing" constant="20" id="4TL-dr-I3e"/>
                             <constraint firstItem="KS7-zI-bh1" firstAttribute="centerX" secondItem="2ql-Ti-Wvi" secondAttribute="centerX" id="4dc-ZB-a0Y"/>
                             <constraint firstItem="2ql-Ti-Wvi" firstAttribute="trailing" secondItem="OK9-D3-Of6" secondAttribute="trailing" constant="75" id="8Qd-zV-mSc"/>
-                            <constraint firstItem="jcl-90-42k" firstAttribute="top" secondItem="KDC-yH-jx2" secondAttribute="bottom" constant="10" id="AUQ-Wf-OKo"/>
-                            <constraint firstItem="KDC-yH-jx2" firstAttribute="width" secondItem="2ql-Ti-Wvi" secondAttribute="width" constant="-20" id="DN5-YD-Rb8"/>
+                            <constraint firstItem="jcl-90-42k" firstAttribute="top" secondItem="KDC-yH-jx2" secondAttribute="bottom" id="AUQ-Wf-OKo"/>
+                            <constraint firstItem="KDC-yH-jx2" firstAttribute="width" secondItem="2ql-Ti-Wvi" secondAttribute="width" id="DN5-YD-Rb8"/>
                             <constraint firstItem="CZx-Pn-Sjl" firstAttribute="centerX" secondItem="rLn-4I-3rz" secondAttribute="centerX" id="Eah-jv-9Vl"/>
                             <constraint firstItem="fq2-mp-N13" firstAttribute="leading" secondItem="rDY-b9-isp" secondAttribute="trailing" constant="-107.5" id="Ffh-mA-qcg"/>
                             <constraint firstItem="43t-zB-YCc" firstAttribute="centerY" secondItem="rDY-b9-isp" secondAttribute="centerY" id="GVK-Cn-OeM"/>
