@@ -911,47 +911,47 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO0-ke-U1H" userLabel="zoomout">
-                                <rect key="frame" x="18" y="112.5" width="24" height="22"/>
+                                <rect key="frame" x="17" y="109.5" width="25" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="minus.square.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="zoom-out" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="zoomOutPushed:" destination="cnt-SB-Byh" eventType="touchUpInside" id="mfN-4j-EG6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-mQ-pj5" userLabel="follow">
-                                <rect key="frame" x="19" y="485.5" width="22" height="21.5"/>
+                                <rect key="frame" x="17" y="485.5" width="25" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="navigation" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="followPositionPushed:" destination="cnt-SB-Byh" eventType="touchUpInside" id="a37-rn-DKF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2y-3s-g5Q" userLabel="download">
-                                <rect key="frame" x="146" y="483.5" width="23" height="25"/>
+                                <rect key="frame" x="145" y="485.5" width="25" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="square.and.arrow.down.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="download" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="downloadRegionPushed:" destination="cnt-SB-Byh" eventType="touchUpInside" id="BSC-ow-JGX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9a-vV-wGs" userLabel="clearcache">
-                                <rect key="frame" x="205.5" y="483.5" width="24" height="25"/>
+                                <rect key="frame" x="205" y="485.5" width="25" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="trash.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="trash" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="clearCachePushed:" destination="cnt-SB-Byh" eventType="touchUpInside" id="bdp-xB-PGZ"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8a-0K-UWL" userLabel="downloadprogress">
-                                <rect key="frame" x="112.5" y="496" width="150" height="0.0"/>
+                                <rect key="frame" x="112.5" y="498" width="150" height="0.0"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Pwr-NC-9tg"/>
@@ -1167,32 +1167,39 @@
                                 </constraints>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlF-mF-yno" userLabel="copy">
-                                <rect key="frame" x="20" y="87.5" width="26" height="29"/>
+                                <rect key="frame" x="20" y="91" width="25" height="25"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="copy-file" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="copyTrainingPushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="Bjf-zR-7E1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egx-C1-0eu" userLabel="insert">
-                                <rect key="frame" x="325" y="91" width="24" height="22"/>
+                                <rect key="frame" x="275" y="91" width="25" height="25"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="plus.square.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="add-row" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="addIntervalPushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="fMB-d5-vyJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZx-Pn-Sjl" userLabel="copy">
-                                <rect key="frame" x="175.5" y="91" width="24" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZx-Pn-Sjl" userLabel="move">
+                                <rect key="frame" x="320" y="91" width="25" height="25"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <imageReference key="image" image="minus.square.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="edit-row" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="editListPushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="z0P-yH-fXG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHD-yk-hsJ" userLabel="install">
+                                <rect key="frame" x="65" y="91" width="25" height="25"/>
+                                <state key="normal" image="installer"/>
+                                <connections>
+                                    <action selector="installPushed:" destination="cpD-uN-Fjh" eventType="touchUpInside" id="hyp-cl-I1x"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1203,27 +1210,29 @@
                             <constraint firstItem="fq2-mp-N13" firstAttribute="width" secondItem="rLn-4I-3rz" secondAttribute="width" id="02x-rD-bXR"/>
                             <constraint firstItem="Egx-C1-0eu" firstAttribute="top" secondItem="WxW-Cn-8Gu" secondAttribute="bottom" constant="15" id="10j-6J-AYr"/>
                             <constraint firstItem="fq2-mp-N13" firstAttribute="height" secondItem="rLn-4I-3rz" secondAttribute="height" id="32Z-Ei-a7o"/>
+                            <constraint firstItem="2ql-Ti-Wvi" firstAttribute="trailing" secondItem="CZx-Pn-Sjl" secondAttribute="trailing" constant="30" id="3fF-qQ-wJk"/>
                             <constraint firstItem="43t-zB-YCc" firstAttribute="leading" secondItem="bPt-JR-HCW" secondAttribute="trailing" constant="20" id="4TL-dr-I3e"/>
                             <constraint firstItem="KS7-zI-bh1" firstAttribute="centerX" secondItem="2ql-Ti-Wvi" secondAttribute="centerX" id="4dc-ZB-a0Y"/>
+                            <constraint firstItem="CZx-Pn-Sjl" firstAttribute="leading" secondItem="Egx-C1-0eu" secondAttribute="trailing" constant="20" id="8AG-vT-rpf"/>
                             <constraint firstItem="2ql-Ti-Wvi" firstAttribute="trailing" secondItem="OK9-D3-Of6" secondAttribute="trailing" constant="75" id="8Qd-zV-mSc"/>
                             <constraint firstItem="jcl-90-42k" firstAttribute="top" secondItem="KDC-yH-jx2" secondAttribute="bottom" id="AUQ-Wf-OKo"/>
                             <constraint firstItem="KDC-yH-jx2" firstAttribute="width" secondItem="2ql-Ti-Wvi" secondAttribute="width" id="DN5-YD-Rb8"/>
-                            <constraint firstItem="CZx-Pn-Sjl" firstAttribute="centerX" secondItem="rLn-4I-3rz" secondAttribute="centerX" id="Eah-jv-9Vl"/>
                             <constraint firstItem="fq2-mp-N13" firstAttribute="leading" secondItem="rDY-b9-isp" secondAttribute="trailing" constant="-107.5" id="Ffh-mA-qcg"/>
                             <constraint firstItem="43t-zB-YCc" firstAttribute="centerY" secondItem="rDY-b9-isp" secondAttribute="centerY" id="GVK-Cn-OeM"/>
+                            <constraint firstItem="UHD-yk-hsJ" firstAttribute="centerY" secondItem="zlF-mF-yno" secondAttribute="centerY" id="Hcz-0h-qi3"/>
                             <constraint firstItem="bPt-JR-HCW" firstAttribute="leading" secondItem="rDY-b9-isp" secondAttribute="trailing" constant="20" id="Ji1-no-7FI"/>
                             <constraint firstItem="Hmd-Vi-8i6" firstAttribute="leading" secondItem="43t-zB-YCc" secondAttribute="trailing" constant="20" id="KkH-GB-cze"/>
                             <constraint firstItem="jcl-90-42k" firstAttribute="centerX" secondItem="rLn-4I-3rz" secondAttribute="centerX" id="MMT-EO-pQ0"/>
                             <constraint firstItem="zlF-mF-yno" firstAttribute="leading" secondItem="2ql-Ti-Wvi" secondAttribute="leading" constant="20" id="MXy-sz-v0e"/>
                             <constraint firstItem="2ql-Ti-Wvi" firstAttribute="top" secondItem="fq2-mp-N13" secondAttribute="top" id="O00-di-g3q"/>
                             <constraint firstItem="jcl-90-42k" firstAttribute="width" secondItem="rLn-4I-3rz" secondAttribute="width" id="Pdw-kb-xop"/>
+                            <constraint firstItem="UHD-yk-hsJ" firstAttribute="leading" secondItem="zlF-mF-yno" secondAttribute="trailing" constant="20" id="Qep-vP-DwX"/>
                             <constraint firstItem="CZx-Pn-Sjl" firstAttribute="centerY" secondItem="zlF-mF-yno" secondAttribute="centerY" id="WTZ-u2-5iI"/>
                             <constraint firstItem="Egx-C1-0eu" firstAttribute="centerY" secondItem="zlF-mF-yno" secondAttribute="centerY" id="aTa-B8-8aJ"/>
                             <constraint firstItem="bPt-JR-HCW" firstAttribute="centerY" secondItem="rDY-b9-isp" secondAttribute="centerY" id="bj2-Zp-iU9"/>
                             <constraint firstItem="WxW-Cn-8Gu" firstAttribute="top" secondItem="2ql-Ti-Wvi" secondAttribute="top" constant="1" id="dK4-HT-IvY"/>
                             <constraint firstItem="WxW-Cn-8Gu" firstAttribute="width" secondItem="fq2-mp-N13" secondAttribute="width" id="dxY-GN-hKC"/>
                             <constraint firstItem="KS7-zI-bh1" firstAttribute="centerY" secondItem="2ql-Ti-Wvi" secondAttribute="centerY" id="eJl-wS-hEx"/>
-                            <constraint firstItem="Egx-C1-0eu" firstAttribute="leading" secondItem="fq2-mp-N13" secondAttribute="trailing" constant="-50" id="n1h-TY-l6i"/>
                             <constraint firstItem="KDC-yH-jx2" firstAttribute="centerX" secondItem="2ql-Ti-Wvi" secondAttribute="centerX" id="rkB-V7-W81"/>
                             <constraint firstItem="KDC-yH-jx2" firstAttribute="top" secondItem="WxW-Cn-8Gu" secondAttribute="bottom" constant="55" id="vQ0-q8-VWv"/>
                             <constraint firstItem="fq2-mp-N13" firstAttribute="leading" secondItem="2ql-Ti-Wvi" secondAttribute="leading" id="wCk-Fy-hbY"/>
@@ -1259,34 +1268,36 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-row" width="25" height="25"/>
         <image name="altitude" width="25" height="25"/>
         <image name="appbackground" width="1500" height="2668"/>
         <image name="average" width="25" height="25"/>
         <image name="bluetooth" width="25" height="25"/>
         <image name="cadence" width="25" height="25"/>
         <image name="challenge" width="30" height="30"/>
+        <image name="copy-file" width="25" height="25"/>
         <image name="cyclist" width="26" height="26"/>
         <image name="distance" width="25" height="25"/>
-        <image name="doc.on.doc.fill" catalog="system" width="116" height="128"/>
+        <image name="download" width="25" height="25"/>
+        <image name="edit-row" width="25" height="25"/>
         <image name="file-new" width="50" height="50"/>
         <image name="file-open" width="50" height="50"/>
         <image name="gear" width="25" height="25"/>
         <image name="hr" width="25" height="25"/>
+        <image name="installer" width="25" height="25"/>
         <image name="map" width="30" height="30"/>
-        <image name="minus.square.fill" catalog="system" width="128" height="114"/>
+        <image name="navigation" width="25" height="25"/>
         <image name="now" width="25" height="25"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus.square.fill" catalog="system" width="128" height="114"/>
         <image name="rollout" width="25" height="25"/>
         <image name="settings" width="26" height="26"/>
         <image name="speed" width="25" height="25"/>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <image name="start-cycling" width="50" height="50"/>
         <image name="stop-cycling" width="50" height="50"/>
         <image name="strava" width="48" height="48"/>
-        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <image name="trash" width="25" height="25"/>
         <image name="usersettings" width="30" height="30"/>
         <image name="watts" width="25" height="25"/>
+        <image name="zoom-out" width="25" height="25"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

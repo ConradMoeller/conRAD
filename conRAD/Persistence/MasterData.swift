@@ -93,8 +93,16 @@ struct Training: Encodable, Decodable {
     }
     
     func copy() -> Training {
-        let result = Training(id: UUID().uuidString, name: name + "_", intervals: intervals, currentInterval: 0)
+        let result = Training(id: UUID().uuidString, name: name, intervals: intervals, currentInterval: 0)
         return result
+    }
+    
+    func getCompletDuration() -> Int {
+        var result = 0
+        for i in intervals {
+            result += (Int(i.duration) ?? 0) + (Int(i.duration_s) ?? 0)
+        }
+        return Int(result)
     }
     
     func getIntervalStart() -> Double {

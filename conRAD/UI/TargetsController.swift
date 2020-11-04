@@ -15,7 +15,6 @@ class TargetsViewController: UIViewController {
     @IBOutlet weak var backGround: UIImageView!
 
     @IBOutlet weak var headerBox: UIView!
-    @IBOutlet weak var header: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnOpen: UIButton!
 
@@ -144,8 +143,20 @@ class TargetsViewController: UIViewController {
     
     @IBAction func copyTrainingPushed(_ sender: Any) {
         training = training.copy()
+        training.name = NSLocalizedString("Copy of ", comment: "no comment") + training.name
         writeTraining(training: training)
         readSettings()
+    }
+    
+    @IBAction func installPushed(_ sender: Any) {
+        let c = MasterDataRepo.readCyclist()
+        let popup = UIAlertController(title: NSLocalizedString("Pre-installed Trainings", comment: "no comment"), message: NSLocalizedString("Install or Update Trainings?", comment: "no comment"), preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: {_ in  TrainingInstaller.installAll(maxHr: c.maxHR, FTP: c.FTP)
+        })
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "no comment"), style: .cancel, handler: nil)
+        popup.addAction(ok)
+        popup.addAction(cancel)
+        present(popup, animated: true, completion: nil)
     }
     
     @IBAction func editListPushed(_ sender: Any) {
@@ -153,7 +164,7 @@ class TargetsViewController: UIViewController {
     }
     
     @IBAction func addIntervalPushed(_ sender: Any) {
-        training.intervals.append(Interval(name: "interval \(training.intervals.count + 1)", hr: "0", power: "0", cadence: "0", duration: "0"))
+        training.intervals.append(Interval(name: NSLocalizedString("Interval ", comment: "no comment") + String(training.intervals.count + 1), hr: "0", power: "0", cadence: "0", duration: "0"))
         training.currentInterval = training.intervals.count - 1
         intervalEdit.intervalView.training = training
         intervalEdit.intervalView.isNew = true
@@ -340,7 +351,7 @@ extension TargetsViewController: ListViewDelegate {
         var result = [(id: String, name: String)]()
         let trainings = MasterDataRepo.readTrainings()
         for training in trainings {
-            result.append((training.id, training.name))
+            result.append((training.id, "\(training.name) (\(training.getCompletDuration()) min)"))
         }
         return result
     }

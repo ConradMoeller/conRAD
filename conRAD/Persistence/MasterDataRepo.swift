@@ -166,30 +166,32 @@ class TrainingInstaller {
     static func installAll(maxHr: String, FTP: String) {
         let hr = Int(maxHr) ?? 180
         let ftp = Int(FTP) ?? 200
+        installFTPTest()
         installEndurance(hr: hr, FTP: ftp)
         installTempo(hr: hr, FTP: ftp)
+        installSweetSpot(hr: hr, FTP: ftp)
     }
     
     static func installFTPTest() {
         var training = MasterDataRepo.newTraining()
         training.id = "FTP_Test"
-        training.name = "FTP Test"
+        training.name = NSLocalizedString("FTP Test", comment: "no comment")
         training.hr = "100"
         training.power = "0"
         training.cadence = "80"
         training.duration = "20"
-        training.intervals[training.currentInterval].name = "warm up"
+        training.intervals[training.currentInterval].name = "Warm-Up"
         let hc = Interval(name: "100 rpm", hr: "130", power: "0", cadence: "100", duration: "1")
-        let pause = Interval(name: "slow down", hr: "130", power: "0", cadence: "80", duration: "1")
+        let pause = Interval(name: "Pause", hr: "130", power: "0", cadence: "80", duration: "1")
         training.intervals.append(hc)
         training.intervals.append(pause)
         training.intervals.append(hc)
         training.intervals.append(pause)
         training.intervals.append(hc)
         training.intervals.append(pause)
-        let test = Interval(name: "ftp test", hr: "180", power: "0", cadence: "90", duration: "20")
+        let test = Interval(name: "FTP Test", hr: "180", power: "0", cadence: "90", duration: "20")
         training.intervals.append(test)
-        let coolDown = Interval(name: "cool down", hr: "130", power: "0", cadence: "80", duration: "15")
+        let coolDown = Interval(name: "Cool-Down", hr: "130", power: "0", cadence: "80", duration: "15")
         training.intervals.append(coolDown)
         MasterDataRepo.writeTraining(training: training)
     }
@@ -198,9 +200,9 @@ class TrainingInstaller {
         return String(Int(Double(v) * f))
     }
     
-    static func getTemplate(name: String, hr: Int, FTP: Int) -> Training {
+    static func getTemplate(file: String, name: String, hr: Int, FTP: Int) -> Training {
         var training = MasterDataRepo.newTraining()
-        training.id = name.replacingOccurrences(of: " ", with: "_")
+        training.id = file.replacingOccurrences(of: " ", with: "_")
         training.name = name
         let lhr = calcWithInt(v: hr, f: 0.6)
         let lp = calcWithInt(v: FTP, f: 0.55)
@@ -208,23 +210,41 @@ class TrainingInstaller {
         training.power = lp
         training.cadence = "80"
         training.duration = "15"
-        training.intervals[training.currentInterval].name = "warm up"
-        let coolDown = Interval(name: "cool down", hr: lhr, power: lp, cadence: "80", duration: "15")
+        training.intervals[training.currentInterval].name = "Warm-Up"
+        let coolDown = Interval(name: "Cool-Down", hr: lhr, power: lp, cadence: "80", duration: "15")
         training.intervals.append(coolDown)
         return training
     }
     
     static func installEndurance(hr: Int, FTP: Int) {
-        var t = getTemplate(name: "Endurance", hr: hr, FTP: FTP)
-        let i = Interval(name: "Endurance", hr: calcWithInt(v: hr, f: 0.76), power: calcWithInt(v: FTP, f: 0.65), cadence: "90", duration: "150")
+        let name = NSLocalizedString("Endurance", comment: "no comment")
+        var t = getTemplate(file: "Endurance", name: name, hr: hr, FTP: FTP)
+        let i = Interval(name: name, hr: calcWithInt(v: hr, f: 0.76), power: calcWithInt(v: FTP, f: 0.65), cadence: "90", duration: "150")
         t.intervals.insert(i, at: 1)
         MasterDataRepo.writeTraining(training: t)
     }
     
     static func installTempo(hr: Int, FTP: Int) {
-        var t = getTemplate(name: "Tempo", hr: hr, FTP: FTP)
-        let i = Interval(name: "Tempo", hr: calcWithInt(v: hr, f: 0.9), power: calcWithInt(v: FTP, f: 0.83), cadence: "90", duration: "120")
+        let name = NSLocalizedString("Tempo", comment: "no comment")
+        var t = getTemplate(file: "Tempo", name: name, hr: hr, FTP: FTP)
+        let i = Interval(name: name, hr: calcWithInt(v: hr, f: 0.9), power: calcWithInt(v: FTP, f: 0.83), cadence: "90", duration: "60")
+        let p = Interval(name: "Pause", hr: calcWithInt(v: hr, f: 0.6), power: calcWithInt(v: FTP, f: 0.55), cadence: "90", duration: "15")
         t.intervals.insert(i, at: 1)
+        t.intervals.insert(p, at: 2)
+        t.intervals.insert(i, at: 3)
+        MasterDataRepo.writeTraining(training: t)
+    }
+        
+    static func installSweetSpot(hr: Int, FTP: Int) {
+        let name = NSLocalizedString("SweetSpot", comment: "no comment")
+        var t = getTemplate(file: "Sweet Spot", name: name, hr: hr, FTP: FTP)
+        let i = Interval(name: name, hr: calcWithInt(v: hr, f: 0.9), power: calcWithInt(v: FTP, f: 0.9), cadence: "90", duration: "20")
+        let p = Interval(name: "Pause", hr: calcWithInt(v: hr, f: 0.6), power: calcWithInt(v: FTP, f: 0.55), cadence: "90", duration: "5")
+        t.intervals.insert(i, at: 1)
+        t.intervals.insert(p, at: 2)
+        t.intervals.insert(i, at: 3)
+        t.intervals.insert(p, at: 4)
+        t.intervals.insert(i, at: 5)
         MasterDataRepo.writeTraining(training: t)
     }
 }
