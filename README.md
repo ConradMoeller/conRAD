@@ -1,3 +1,6 @@
 # conRAD!
 
-Visit: http://conrad-cycling.com
+Thanks to:
+
+- OpenStreetMap: https://www.openstreetmap.org
+- 
