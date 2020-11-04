@@ -15,4 +15,4 @@ Thanks goes out to:
 - Icon8: https://icons8.com
 - https://stackoverflow.com for answering 1000 questions
 
-And last but not least 1000 thanks to my wife and daughter for endless patience while I hacking swift ;)
+And last but not least 1000 thanks to my wife Linda and daughter Luzie for endless patience while I hacking swift ;)
