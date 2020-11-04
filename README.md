@@ -1,5 +1,7 @@
 # conRAD!
 
+Just another bikeing app ... or not ...
+
 For more Information visit the website.
 
 Thanks goes out to:
