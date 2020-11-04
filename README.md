@@ -1,6 +1,6 @@
 # conRAD!
 
-Just another bikeing app ... or not ...
+Just another biking app ... or not ...
 
 For more Information visit the website.
 
