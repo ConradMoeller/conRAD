@@ -1,4 +1,4 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ConradMoeller_conRADKit&metric=alert_status)](https://sonarcloud.io/dashboard?id=ConradMoeller_conRAD)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=ConradMoeller_conRAD)](https://sonarcloud.io/dashboard?id=ConradMoeller_conRAD)
 
 # conRAD!
 
