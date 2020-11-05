@@ -1,6 +1,8 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ConradMoeller_conRADKit&metric=alert_status)](https://sonarcloud.io/dashboard?id=ConradMoeller_conRAD)
+
 # conRAD!
 
-Just another biking app ... or not ...
+Just another biking app ... or not ... you decide.
 
 For more Information visit the website.
 
