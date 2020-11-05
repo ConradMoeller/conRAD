@@ -2,7 +2,7 @@
 
 # conRAD!
 
-Just another biking app ... or not ... you decide.
+Just another cycling app ... or not ... you decide.
 
 For more Information visit the website.
 
