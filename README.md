@@ -1,5 +1,20 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=ConradMoeller_conRAD)](https://sonarcloud.io/dashboard?id=ConradMoeller_conRAD)
+
 # conRAD!
 
-conRAD! is a mobile (iPhone) App that is specialized to support power based bycicle training. This kind of training uses power as metric instead of heart rate. The common training apps also support metering the power but IMO do not provide special support ... or I did not found an App that matches my requirements. So I invented conRAD! to fill this gap.
+Just another cycling app ... or not ... you decide.
 
-More details will be provided asap ... until then stay tuned and keep on cycling ;)
+For more Information visit the website.
+
+Thanks goes out to:
+
+- OpenStreetMap: https://www.openstreetmap.org
+- iOS FileBrowser: https://github.com/marmelroy/FileBrowser
+- Alamofire: https://github.com/Alamofire/Alamofire
+- SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
+- MapCache: https://github.com/merlos/MapCache
+- CoreGPX: https://github.com/vincentneo/CoreGPX
+- Icon8: https://icons8.com
+- https://stackoverflow.com for answering 1000 questions
+
+And last but not least 1000 thanks to my wife Linda and daughter Luzie for endless patience while I'm hacking swift ;)
