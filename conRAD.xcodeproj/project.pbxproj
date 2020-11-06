@@ -29,10 +29,10 @@
 		504D1361232E79CD00C2290E /* StravaAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D134B232E79CD00C2290E /* StravaAuthenticationViewController.swift */; };
 		504D1362232E79CD00C2290E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D134C232E79CD00C2290E /* SettingsController.swift */; };
 		504D1363232E79CD00C2290E /* TargetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D134D232E79CD00C2290E /* TargetsController.swift */; };
-		504D1364232E79CD00C2290E /* DeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504D134E232E79CD00C2290E /* DeviceViewController.xib */; };
+		504D1364232E79CD00C2290E /* DeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504D134E232E79CD00C2290E /* DeviceView.xib */; };
 		504D1365232E79CD00C2290E /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D134F232E79CD00C2290E /* DeviceViewController.swift */; };
 		504D1367232E79CD00C2290E /* MeterDataProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1351232E79CD00C2290E /* MeterDataProgressView.swift */; };
-		504D1369232E79CD00C2290E /* StravaAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504D1353232E79CD00C2290E /* StravaAuthenticationViewController.xib */; };
+		504D1369232E79CD00C2290E /* StravaAuthentication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504D1353232E79CD00C2290E /* StravaAuthentication.xib */; };
 		504D136A232E79CD00C2290E /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1354232E79CD00C2290E /* UIUtil.swift */; };
 		504D136B232E79CD00C2290E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1355232E79CD00C2290E /* AppDelegate.swift */; };
 		504D136C232E79CD00C2290E /* DevicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1356232E79CD00C2290E /* DevicesController.swift */; };
@@ -45,13 +45,17 @@
 		5067014C252253DC00AD818B /* BicycleBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50670143252253A600AD818B /* BicycleBLEKit.framework */; };
 		5067014D252253DC00AD818B /* BicycleBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50670143252253A600AD818B /* BicycleBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		509DD48A2340DC3D00132FF4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509DD4892340DC3D00132FF4 /* MapKit.framework */; };
+		50A05A3B254EC589007C6722 /* IntervalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A05A3A254EC589007C6722 /* IntervalView.xib */; };
+		50A05A3E254ECAE6007C6722 /* IntervalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A05A3D254ECAE6007C6722 /* IntervalViewController.swift */; };
+		50A05A43254EF16B007C6722 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50A05A41254EF16B007C6722 /* Localizable.strings */; };
 		50A4EDB4234CEAEC0076983F /* InitialSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4EDB3234CEAEC0076983F /* InitialSetup.swift */; };
-		50A4EDB6234D19510076983F /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A4EDB5234D19510076983F /* WelcomeViewController.xib */; };
+		50A4EDB6234D19510076983F /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A4EDB5234D19510076983F /* WelcomeView.xib */; };
 		50A4EDB8234D1A530076983F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4EDB7234D1A530076983F /* WelcomeViewController.swift */; };
 		50D3C2B125463A030086C292 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D3C2B025463A020086C292 /* HealthKit.framework */; };
 		50D3C2C0254765A30086C292 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D3C2BF254765A30086C292 /* ListView.xib */; };
 		50D3C2C7254812560086C292 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3C2C6254812560086C292 /* ListViewController.swift */; };
 		50D3C2D525488BE80086C292 /* MyMapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3C2D425488BE80086C292 /* MyMapCache.swift */; };
+		50F220ED255073330093499D /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F220EB255073330093499D /* Main.strings */; };
 		EEDCD7CEAAE33E029D4DC44B /* Pods_conRAD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E47F834E29736DE8B839947 /* Pods_conRAD.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,10 +132,10 @@
 		504D134B232E79CD00C2290E /* StravaAuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StravaAuthenticationViewController.swift; sourceTree = "<group>"; };
 		504D134C232E79CD00C2290E /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		504D134D232E79CD00C2290E /* TargetsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetsController.swift; sourceTree = "<group>"; };
-		504D134E232E79CD00C2290E /* DeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceViewController.xib; sourceTree = "<group>"; };
+		504D134E232E79CD00C2290E /* DeviceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceView.xib; sourceTree = "<group>"; };
 		504D134F232E79CD00C2290E /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		504D1351232E79CD00C2290E /* MeterDataProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeterDataProgressView.swift; sourceTree = "<group>"; };
-		504D1353232E79CD00C2290E /* StravaAuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StravaAuthenticationViewController.xib; sourceTree = "<group>"; };
+		504D1353232E79CD00C2290E /* StravaAuthentication.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StravaAuthentication.xib; sourceTree = "<group>"; };
 		504D1354232E79CD00C2290E /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 		504D1355232E79CD00C2290E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		504D1356232E79CD00C2290E /* DevicesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesController.swift; sourceTree = "<group>"; };
@@ -200,14 +204,18 @@
 		5067013D252253A600AD818B /* BicycleBLEKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicycleBLEKitTests.swift; sourceTree = "<group>"; };
 		5067013E252253A600AD818B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		509DD4892340DC3D00132FF4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		50A05A3A254EC589007C6722 /* IntervalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntervalView.xib; sourceTree = "<group>"; };
+		50A05A3D254ECAE6007C6722 /* IntervalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalViewController.swift; sourceTree = "<group>"; };
+		50A05A42254EF16B007C6722 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = conRAD/de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50A4EDB3234CEAEC0076983F /* InitialSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetup.swift; sourceTree = "<group>"; };
-		50A4EDB5234D19510076983F /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		50A4EDB5234D19510076983F /* WelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 		50A4EDB7234D1A530076983F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		50D3C2B025463A020086C292 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		50D3C2B42546BAA90086C292 /* conRAD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = conRAD.entitlements; sourceTree = "<group>"; };
 		50D3C2BF254765A30086C292 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
 		50D3C2C6254812560086C292 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		50D3C2D425488BE80086C292 /* MyMapCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapCache.swift; sourceTree = "<group>"; };
+		50F220EC255073330093499D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		969C0C05895057AC051E02E1 /* Pods-conRAD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conRAD.debug.xcconfig"; path = "Target Support Files/Pods-conRAD/Pods-conRAD.debug.xcconfig"; sourceTree = "<group>"; };
 		EDBD964BCB845E694EDBA7C9 /* Pods-conRAD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conRAD.release.xcconfig"; path = "Target Support Files/Pods-conRAD/Pods-conRAD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +274,8 @@
 		504D12E6232E752E00C2290E /* conRAD */ = {
 			isa = PBXGroup;
 			children = (
+				50F220EB255073330093499D /* Main.strings */,
+				50A05A41254EF16B007C6722 /* Localizable.strings */,
 				50D3C2B42546BAA90086C292 /* conRAD.entitlements */,
 				504D12ED232E752E00C2290E /* Main.storyboard */,
 				504D12F2232E752F00C2290E /* LaunchScreen.storyboard */,
@@ -347,21 +357,23 @@
 			children = (
 				504D1355232E79CD00C2290E /* AppDelegate.swift */,
 				50A4EDB3234CEAEC0076983F /* InitialSetup.swift */,
+				50A4EDB5234D19510076983F /* WelcomeView.xib */,
 				50A4EDB7234D1A530076983F /* WelcomeViewController.swift */,
-				50A4EDB5234D19510076983F /* WelcomeViewController.xib */,
 				504D134D232E79CD00C2290E /* TargetsController.swift */,
+				504D1353232E79CD00C2290E /* StravaAuthentication.xib */,
 				504D134B232E79CD00C2290E /* StravaAuthenticationViewController.swift */,
-				504D1353232E79CD00C2290E /* StravaAuthenticationViewController.xib */,
 				504D1349232E79CD00C2290E /* CycleController.swift */,
 				504D1357232E79CD00C2290E /* NavigationController.swift */,
-				504D134F232E79CD00C2290E /* DeviceViewController.swift */,
-				504D134E232E79CD00C2290E /* DeviceViewController.xib */,
 				504D1356232E79CD00C2290E /* DevicesController.swift */,
+				504D134E232E79CD00C2290E /* DeviceView.xib */,
+				504D134F232E79CD00C2290E /* DeviceViewController.swift */,
 				504D134C232E79CD00C2290E /* SettingsController.swift */,
-				504D1351232E79CD00C2290E /* MeterDataProgressView.swift */,
-				504D1354232E79CD00C2290E /* UIUtil.swift */,
 				50D3C2BF254765A30086C292 /* ListView.xib */,
 				50D3C2C6254812560086C292 /* ListViewController.swift */,
+				50A05A3A254EC589007C6722 /* IntervalView.xib */,
+				50A05A3D254ECAE6007C6722 /* IntervalViewController.swift */,
+				504D1351232E79CD00C2290E /* MeterDataProgressView.swift */,
+				504D1354232E79CD00C2290E /* UIUtil.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -635,6 +647,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 504D12DB232E752E00C2290E;
 			productRefGroup = 504D12E5232E752E00C2290E /* Products */;
@@ -682,13 +695,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				504D1364232E79CD00C2290E /* DeviceViewController.xib in Resources */,
-				50A4EDB6234D19510076983F /* WelcomeViewController.xib in Resources */,
+				504D1364232E79CD00C2290E /* DeviceView.xib in Resources */,
+				50A05A3B254EC589007C6722 /* IntervalView.xib in Resources */,
+				50A4EDB6234D19510076983F /* WelcomeView.xib in Resources */,
 				504D12F4232E752F00C2290E /* LaunchScreen.storyboard in Resources */,
+				50A05A43254EF16B007C6722 /* Localizable.strings in Resources */,
 				504D12F1232E752F00C2290E /* Assets.xcassets in Resources */,
 				504D12EF232E752E00C2290E /* Main.storyboard in Resources */,
-				504D1369232E79CD00C2290E /* StravaAuthenticationViewController.xib in Resources */,
+				504D1369232E79CD00C2290E /* StravaAuthentication.xib in Resources */,
 				50D3C2C0254765A30086C292 /* ListView.xib in Resources */,
+				50F220ED255073330093499D /* Main.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +772,7 @@
 				504D136B232E79CD00C2290E /* AppDelegate.swift in Sources */,
 				504D135F232E79CD00C2290E /* CycleController.swift in Sources */,
 				504D1370232E79CD00C2290E /* ActivityLogFile.swift in Sources */,
+				50A05A3E254ECAE6007C6722 /* IntervalViewController.swift in Sources */,
 				504D132C232E76F600C2290E /* HeartRateConnector.swift in Sources */,
 				504D132E232E76F600C2290E /* GPSConnector.swift in Sources */,
 				504D1339232E76F600C2290E /* TimeSeries.swift in Sources */,
@@ -825,6 +842,22 @@
 				50670136252253A600AD818B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		50A05A41254EF16B007C6722 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50A05A42254EF16B007C6722 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		50F220EB255073330093499D /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50F220EC255073330093499D /* de */,
+			);
+			name = Main.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -953,7 +986,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = conRAD/conRAD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = YU6TJ5T878;
 				INFOPLIST_FILE = conRAD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -975,7 +1008,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = conRAD/conRAD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = YU6TJ5T878;
 				INFOPLIST_FILE = conRAD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;

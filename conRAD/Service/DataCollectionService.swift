@@ -333,6 +333,7 @@ class DataCollectionService {
                 training.currentInterval = training.currentInterval + 1
                 if intervalChange != nil {
                     intervalChange(training.intervals[training.currentInterval].name)
+                    updateTrainingLimits()
                 }
             }
         }
