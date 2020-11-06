@@ -258,7 +258,7 @@ class TargetsViewController: UIViewController {
     }
     
     func selectUpload(strava: Strava) {
-        let fb = FileBrowser()
+        let fb = FileBrowser(initialPath: FileTool.getDir(name: "sessions"), allowEditing: false, showCancelButton: true)
         fb.excludesFilepaths = []
         fb.excludesFileExtensions = ["csv", "json"]
         fb.didSelectFile = { (file: FBFile) -> Void in

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Conrad Moeller. All rights reserved.
 //
 
-import UIKit
+import WebKit
 
 class StravaAuthenticationNavigation: UINavigationController {
 
@@ -24,10 +24,11 @@ class StravaAuthenticationNavigation: UINavigationController {
 
 }
 
-class StravaAuthenticationViewController: UIViewController, UIWebViewDelegate {
+class StravaAuthenticationViewController: UIViewController, WKNavigationDelegate {
 
-    @IBOutlet weak var webView: UIWebView!
-
+    
+    var webView: WKWebView!
+    
     private var strava = Strava.getInstance()
 
     var didLoginSucceed: (() -> Void)?
@@ -37,16 +38,20 @@ class StravaAuthenticationViewController: UIViewController, UIWebViewDelegate {
         let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(StravaAuthenticationViewController.done(button:)))
         self.navigationItem.rightBarButtonItem = dismissButton
         UserDefaults.standard.register(defaults: ["UserAgent": "conRAD!"])
-        self.webView.loadRequest(URLRequest(url: Strava.getInstance().makeAuthURL()!))
-        self.webView.delegate = self
+        if self.webView == nil {
+            self.webView = WKWebView()
+        }
+        self.view = webView
+        self.webView.load(URLRequest(url: Strava.getInstance().makeAuthURL()!))
+        webView.navigationDelegate = self
     }
 
     @objc func done(button: UIBarButtonItem = UIBarButtonItem()) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if let url = request.mainDocumentURL {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
+        if let url = webView.url {
             if url.absoluteString.starts(with: strava.domain) {
                 let params = url.absoluteString.split(separator: "&")
                 for p in params {
@@ -54,11 +59,11 @@ class StravaAuthenticationViewController: UIViewController, UIWebViewDelegate {
                         strava.code = String(p.split(separator: "=")[1])
                     }
                 }
+                decisionHandler(.cancel)
                 self.dismiss(animated: true, completion: didLoginSucceed)
-                return false
+                return
             }
         }
-        return true
+        decisionHandler(.allow)
     }
-
 }
