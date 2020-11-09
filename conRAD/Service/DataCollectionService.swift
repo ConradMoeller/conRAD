@@ -119,6 +119,7 @@ class DataCollectionService {
         }
         training = MasterDataRepo.readTraining()
         training.currentInterval = 0
+        MasterDataRepo.writeTraining(training: training)
         updateTrainingLimits()
         recordingStarted = true
         resetTotals()
@@ -156,8 +157,7 @@ class DataCollectionService {
         // FileTool.write(name: logFile.getFileName(), data: logFile.toCSV(), ext: "csv")
     }
 
-    func updateTrainingLimits() {
-        let training = MasterDataRepo.readTraining()
+    private func updateTrainingLimits() {
         hrData.setTarget(target: Int(training.hr) ?? 0)
         hrData.setTolerance(tolerance: 10)
         powerData.setTarget(target: Int(training.power) ?? 0)
@@ -299,11 +299,12 @@ class DataCollectionService {
     }
     
     func getIntervalProgress() -> Float {
-        if duration < 0.5 {
+        let t = getDuration()
+        if t < 0.5 {
             return 0.0
         }
-        let a:Float = Float(duration - training.getIntervalStart() * 60)
-        let b:Float = (Float(training.duration) ?? 1.0) * 60
+        let a:Float = Float(t - training.getIntervalStart())
+        let b:Float = (Float(training.duration) ?? 1.0) * 60.0 + (Float(training.duration_s) ?? 0.0)
         return a / b
     }
 

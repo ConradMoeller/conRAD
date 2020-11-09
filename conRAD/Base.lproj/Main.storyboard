@@ -132,17 +132,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-w0-vQL">
-                                        <rect key="frame" x="34" y="52.5" width="120" height="10"/>
+                                        <rect key="frame" x="34" y="52.5" width="120" height="20"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-3Y-WDZ" customClass="MeterDataProgressView" customModule="conRAD" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="10"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="BBg-Pg-Llo"/>
-                                            <constraint firstAttribute="height" constant="10" id="xZq-So-jHI"/>
+                                            <constraint firstAttribute="height" constant="20" id="xZq-So-jHI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -177,11 +177,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-WL-u64">
-                                        <rect key="frame" x="34" y="52.5" width="120" height="10"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-WL-u64">
+                                        <rect key="frame" x="34" y="52.5" width="120" height="20"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tmz-3h-UPB" customClass="MeterDataProgressView" customModule="conRAD" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="10"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
@@ -210,17 +210,17 @@
                                 <rect key="frame" x="0.0" y="236" width="375" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEo-7k-iGG">
-                                        <rect key="frame" x="67.5" y="65" width="240" height="10"/>
+                                        <rect key="frame" x="67.5" y="68" width="240" height="20"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0J9-oW-ClT" customClass="MeterDataProgressView" customModule="conRAD" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="10"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="8hU-Ug-I5E"/>
-                                            <constraint firstAttribute="height" constant="10" id="fyw-yi-7Er"/>
+                                            <constraint firstAttribute="height" constant="20" id="fyw-yi-7Er"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watts" translatesAutoresizingMaskIntoConstraints="NO" id="IYy-Ua-f2u">
@@ -279,7 +279,7 @@
                                     <constraint firstItem="JM7-aS-vBY" firstAttribute="centerY" secondItem="RTP-vL-dJ0" secondAttribute="centerY" id="TbY-V1-7dN"/>
                                     <constraint firstItem="t42-o6-vyU" firstAttribute="centerY" secondItem="wla-7m-7ez" secondAttribute="centerY" id="UMw-mM-A21"/>
                                     <constraint firstItem="cEo-7k-iGG" firstAttribute="centerX" secondItem="dHS-AK-YLD" secondAttribute="centerX" id="UsH-OF-HsB"/>
-                                    <constraint firstItem="cEo-7k-iGG" firstAttribute="centerY" secondItem="dHS-AK-YLD" secondAttribute="centerY" id="ZfM-gq-CZc"/>
+                                    <constraint firstItem="cEo-7k-iGG" firstAttribute="centerY" secondItem="dHS-AK-YLD" secondAttribute="centerY" constant="8" id="ZfM-gq-CZc"/>
                                     <constraint firstItem="NeR-eW-G4b" firstAttribute="centerY" secondItem="RTP-vL-dJ0" secondAttribute="centerY" id="eMe-Al-PM3"/>
                                     <constraint firstItem="IYy-Ua-f2u" firstAttribute="leading" secondItem="dHS-AK-YLD" secondAttribute="leading" constant="10" id="hnP-4f-HgH"/>
                                     <constraint firstItem="wla-7m-7ez" firstAttribute="centerY" secondItem="NeR-eW-G4b" secondAttribute="centerY" id="i8p-00-jbx"/>

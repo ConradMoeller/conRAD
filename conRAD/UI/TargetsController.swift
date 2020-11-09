@@ -351,7 +351,7 @@ extension TargetsViewController: ListViewDelegate {
         var result = [(id: String, name: String)]()
         let trainings = MasterDataRepo.readTrainings()
         for training in trainings {
-            result.append((training.id, "\(training.name) (\(training.getCompletDuration()) min)"))
+            result.append((training.id, "\(training.name) (\(training.getCompletDuration() / 60) min)"))
         }
         return result
     }

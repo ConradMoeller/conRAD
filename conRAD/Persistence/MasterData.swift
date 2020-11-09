@@ -92,6 +92,15 @@ struct Training: Encodable, Decodable {
         }
     }
     
+    var duration_s: String {
+        get {
+            intervals[currentInterval].duration_s
+        }
+        set(newValue) {
+            intervals[currentInterval].duration_s = newValue
+        }
+    }
+    
     func copy() -> Training {
         let result = Training(id: UUID().uuidString, name: name, intervals: intervals, currentInterval: 0)
         return result
@@ -100,7 +109,7 @@ struct Training: Encodable, Decodable {
     func getCompletDuration() -> Int {
         var result = 0
         for i in intervals {
-            result += (Int(i.duration) ?? 0) + (Int(i.duration_s) ?? 0)
+            result += (Int(i.duration) ?? 0) * 60 + (Int(i.duration_s) ?? 0)
         }
         return Int(result)
     }
@@ -110,7 +119,7 @@ struct Training: Encodable, Decodable {
         var count = 0
         for i in intervals {
             if count < currentInterval {
-                result += (Int(i.duration) ?? 0) + (Int(i.duration_s) ?? 0)
+                result += (Int(i.duration) ?? 0) * 60 + (Int(i.duration_s) ?? 0)
             }
             count += 1
         }

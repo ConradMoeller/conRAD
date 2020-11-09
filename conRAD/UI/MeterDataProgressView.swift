@@ -33,42 +33,45 @@ import AVFoundation
 
     private func setUpView() {
 
-        let width = bounds.width / 9
+        let width = bounds.width / 20
 
         lblue.backgroundColor = UIColor.blue
         lblue.translatesAutoresizingMaskIntoConstraints = false
-        lblue.widthAnchor.constraint(equalToConstant: 2 * width).isActive = true
+        lblue.widthAnchor.constraint(equalToConstant: 3 * width).isActive = true
         lblue.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
 
         l2.backgroundColor = UIColor.green
         l2.translatesAutoresizingMaskIntoConstraints = false
-        l2.widthAnchor.constraint(equalToConstant: width).isActive = true
+        l2.widthAnchor.constraint(equalToConstant: 2 * width).isActive = true
         l2.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
 
         l1.backgroundColor = UIColor.green
         l1.translatesAutoresizingMaskIntoConstraints = false
-        l1.widthAnchor.constraint(equalToConstant: width).isActive = true
+        l1.widthAnchor.constraint(equalToConstant: 2 * width).isActive = true
         l1.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
 
         lcenter.backgroundColor = UIColor.green
         lcenter.alpha = 0.5
         lcenter.translatesAutoresizingMaskIntoConstraints = false
-        lcenter.widthAnchor.constraint(equalToConstant: width).isActive = true
+        lcenter.widthAnchor.constraint(equalToConstant: 5 * width).isActive = true
         lcenter.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
+        lcenter.textAlignment = .center
+        lcenter.adjustsFontSizeToFitWidth = true
+        lcenter.font = lcenter.font.withSize(17)
 
         r1.backgroundColor = UIColor.green
         r1.translatesAutoresizingMaskIntoConstraints = false
-        r1.widthAnchor.constraint(equalToConstant: width).isActive = true
+        r1.widthAnchor.constraint(equalToConstant: 2 * width).isActive = true
         r1.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
 
         r2.backgroundColor = UIColor.green
         r2.translatesAutoresizingMaskIntoConstraints = false
-        r2.widthAnchor.constraint(equalToConstant: width).isActive = true
+        r2.widthAnchor.constraint(equalToConstant: 2 * width).isActive = true
         r2.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
 
         rred.backgroundColor = UIColor.red
         rred.translatesAutoresizingMaskIntoConstraints = false
-        rred.widthAnchor.constraint(equalToConstant: 2 * width).isActive = true
+        rred.widthAnchor.constraint(equalToConstant: 3 * width).isActive = true
         rred.heightAnchor.constraint(equalToConstant: bounds.height).isActive = true
 
         labels.append(lblue)
@@ -104,6 +107,7 @@ import AVFoundation
     func updateProgress(isConnected: Bool, data: ProgressDataProvider) {
 
         setConnectionState(isConnected: isConnected)
+        lcenter.text = String(data.getTarget())
         if isConnected && data.getTarget() > 0 {
             let progress = data.getProgressValue()
             if progress < -99.0 {
