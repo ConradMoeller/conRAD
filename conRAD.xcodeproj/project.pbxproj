@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		502EF901236EE311007B9587 /* autoshift.csv in Resources */ = {isa = PBXBuildFile; fileRef = 502EF900236EE311007B9587 /* autoshift.csv */; };
 		504D12EF232E752E00C2290E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504D12ED232E752E00C2290E /* Main.storyboard */; };
 		504D12F1232E752F00C2290E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504D12F0232E752F00C2290E /* Assets.xcassets */; };
 		504D12F4232E752F00C2290E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504D12F2232E752F00C2290E /* LaunchScreen.storyboard */; };
@@ -24,7 +23,6 @@
 		504D133A232E76F600C2290E /* CaloricCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D131D232E76F600C2290E /* CaloricCalculator.swift */; };
 		504D133B232E76F600C2290E /* DoubleMeterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D131E232E76F600C2290E /* DoubleMeterData.swift */; };
 		504D133E232E76F600C2290E /* GearBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1322232E76F600C2290E /* GearBox.swift */; };
-		504D1347232E784D00C2290E /* ShifterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1346232E784D00C2290E /* ShifterTests.swift */; };
 		504D135F232E79CD00C2290E /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D1349232E79CD00C2290E /* CycleController.swift */; };
 		504D1361232E79CD00C2290E /* StravaAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D134B232E79CD00C2290E /* StravaAuthenticationViewController.swift */; };
 		504D1362232E79CD00C2290E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D134C232E79CD00C2290E /* SettingsController.swift */; };
@@ -106,7 +104,6 @@
 
 /* Begin PBXFileReference section */
 		1E47F834E29736DE8B839947 /* Pods_conRAD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_conRAD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		502EF900236EE311007B9587 /* autoshift.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = autoshift.csv; sourceTree = "<group>"; };
 		504D12E4232E752E00C2290E /* conRAD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conRAD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504D12EE232E752E00C2290E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		504D12F0232E752F00C2290E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,7 +124,6 @@
 		504D131D232E76F600C2290E /* CaloricCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaloricCalculator.swift; sourceTree = "<group>"; };
 		504D131E232E76F600C2290E /* DoubleMeterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleMeterData.swift; sourceTree = "<group>"; };
 		504D1322232E76F600C2290E /* GearBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearBox.swift; sourceTree = "<group>"; };
-		504D1346232E784D00C2290E /* ShifterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShifterTests.swift; sourceTree = "<group>"; };
 		504D1349232E79CD00C2290E /* CycleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleController.swift; sourceTree = "<group>"; };
 		504D134B232E79CD00C2290E /* StravaAuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StravaAuthenticationViewController.swift; sourceTree = "<group>"; };
 		504D134C232E79CD00C2290E /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -297,8 +293,6 @@
 			children = (
 				506700EE2520EFFF00AD818B /* PersistenceTests.swift */,
 				504D12FE232E752F00C2290E /* MeterDataTests.swift */,
-				504D1346232E784D00C2290E /* ShifterTests.swift */,
-				502EF900236EE311007B9587 /* autoshift.csv */,
 				504D1300232E752F00C2290E /* Info.plist */,
 			);
 			path = conRADTests;
@@ -712,7 +706,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				502EF901236EE311007B9587 /* autoshift.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +798,6 @@
 			files = (
 				506700EF2520EFFF00AD818B /* PersistenceTests.swift in Sources */,
 				504D12FF232E752F00C2290E /* MeterDataTests.swift in Sources */,
-				504D1347232E784D00C2290E /* ShifterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
