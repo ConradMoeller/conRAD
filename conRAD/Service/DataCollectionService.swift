@@ -75,6 +75,8 @@ class DataCollectionService {
 
     private init() {
     
+        _ = HealthDataConnector.sharedInstance.initialize()
+        
         hrData = IntMeterData(useLastValue: true, bufferSize: 1)
         hrConnector = HeartRateConnector(hrData: hrData)
         powerData = IntMeterData(useLastValue: false, bufferSize: DataCollectionService.POWER_BUFFER_SIZE)

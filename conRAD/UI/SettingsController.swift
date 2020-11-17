@@ -74,6 +74,17 @@ class SettingsViewController: UIViewController {
     @IBAction func metricSystemChanged(_ sender: Any) {
         writeSettings()
     }
+    
+    @IBAction func healthKitPushed(_ sender: Any) {
+        HealthDataConnector.sharedInstance.requestAuthorization { (success) in
+            DispatchQueue.main.async {
+                let message = success ? "Authorized health data access." : "Failed to authorize health data access."
+                let alertController = UIAlertController(title: "Health Data", message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension SettingsViewController: UITextFieldDelegate {

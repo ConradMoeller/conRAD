@@ -49,6 +49,7 @@
 		50A4EDB4234CEAEC0076983F /* InitialSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4EDB3234CEAEC0076983F /* InitialSetup.swift */; };
 		50A4EDB6234D19510076983F /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A4EDB5234D19510076983F /* WelcomeView.xib */; };
 		50A4EDB8234D1A530076983F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4EDB7234D1A530076983F /* WelcomeViewController.swift */; };
+		50CAF96425645B6E0052F6DD /* HealthDataConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CAF96325645B6E0052F6DD /* HealthDataConnector.swift */; };
 		50D3C2B125463A030086C292 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D3C2B025463A020086C292 /* HealthKit.framework */; };
 		50D3C2C0254765A30086C292 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D3C2BF254765A30086C292 /* ListView.xib */; };
 		50D3C2C7254812560086C292 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3C2C6254812560086C292 /* ListViewController.swift */; };
@@ -206,6 +207,7 @@
 		50A4EDB3234CEAEC0076983F /* InitialSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetup.swift; sourceTree = "<group>"; };
 		50A4EDB5234D19510076983F /* WelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 		50A4EDB7234D1A530076983F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		50CAF96325645B6E0052F6DD /* HealthDataConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataConnector.swift; sourceTree = "<group>"; };
 		50D3C2B025463A020086C292 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		50D3C2B42546BAA90086C292 /* conRAD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = conRAD.entitlements; sourceTree = "<group>"; };
 		50D3C2BF254765A30086C292 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				504D130C232E76F600C2290E /* HeartRateConnector.swift */,
 				504D1312232E76F600C2290E /* CyclingSpeedCadenceConnector.swift */,
 				504D130E232E76F600C2290E /* GPSConnector.swift */,
+				50CAF96325645B6E0052F6DD /* HealthDataConnector.swift */,
 			);
 			path = Connectors;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				504D136D232E79CD00C2290E /* NavigationController.swift in Sources */,
 				504D136A232E79CD00C2290E /* UIUtil.swift in Sources */,
 				504D136B232E79CD00C2290E /* AppDelegate.swift in Sources */,
+				50CAF96425645B6E0052F6DD /* HealthDataConnector.swift in Sources */,
 				504D135F232E79CD00C2290E /* CycleController.swift in Sources */,
 				504D1370232E79CD00C2290E /* ActivityLogFile.swift in Sources */,
 				50A05A3E254ECAE6007C6722 /* IntervalViewController.swift in Sources */,

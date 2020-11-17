@@ -178,3 +178,6 @@
 
 /* Class = "UIButton"; normalTitle = "Copy"; ObjectID = "zlF-mF-yno"; */
 "zlF-mF-yno.normalTitle" = "Kopieren";
+
+/* Class = "UIButton"; normalTitle = "Authorize Health"; ObjectID = "oDC-y8-wXj"; */
+"oDC-y8-wXj.normalTitle" = "Zugriff auf Health erlauben";
