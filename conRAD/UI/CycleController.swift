@@ -87,7 +87,7 @@ class CycleViewController: UIViewController {
             updateAll()
         } else {
             resetView()
-            initProgress()
+            intervalProgress.progress = 0.0
             timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateMeasurements), userInfo: nil, repeats: true)
             updateMeasurements()
         }
@@ -163,18 +163,14 @@ class CycleViewController: UIViewController {
         gear1.text = gearbox.findGear(frontIndex: 0, rollOut: rollOut).getDesc()
         gear2.text = gearbox.findGear(frontIndex: 1, rollOut: rollOut).getDesc()
         
+        heartRateView.setConnectionState(isConnected: dataCollector.isHRDeviceConnected())
+        wattageView.setConnectionState(isConnected: dataCollector.isPowerMeterDeviceConnected())
+        cadenceView.setConnectionState(isConnected: dataCollector.isCadenceDeviceConnected())
     }
 
     @objc func updateAll() {
         updateMeasurements()
         updateProgress()
-    }
-
-    func initProgress() {
-        intervalProgress.progress = 0.0
-        heartRateView.setConnectionState(isConnected: dataCollector.isHRDeviceConnected())
-        wattageView.setConnectionState(isConnected: dataCollector.isPowerMeterDeviceConnected())
-        cadenceView.setConnectionState(isConnected: dataCollector.isCadenceDeviceConnected())
     }
     
     func updateProgress() {
