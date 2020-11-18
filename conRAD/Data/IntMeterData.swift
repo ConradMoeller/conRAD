@@ -23,7 +23,6 @@ class IntMeterData: ProgressDataProvider {
     private var avgValue = 0
     private var sigma = 0
 
-    private var notificationTimeout = 1.5
     private var totalNotifications = 0
     private var totalSum = 0
     private var totalMax = 0
@@ -34,7 +33,6 @@ class IntMeterData: ProgressDataProvider {
     init(useLastValue: Bool, bufferSize: Int) {
         useLast = useLastValue
         maxSize = bufferSize
-        notificationTimeout = 1.5
         lastNotification = Date()
         values = TimeSeries<Int>(capacity: maxSize)
         deviation = TimeSeries<Int>(capacity: maxSize)
@@ -62,14 +60,12 @@ class IntMeterData: ProgressDataProvider {
     func queue(v: Int) {
         if v == 0 {
             if values.getValueList().count > 0 {
-                lastNotification -= notificationTimeout
                 lastNotification -= 0.1
                 totalNotifications += 1
             }
             clear()
             return
         }
-        notificationTimeout = min(2.0, ((notificationTimeout + abs(lastNotification.timeIntervalSinceNow)) / 2) * 1.25)
         lastNotification = Date()
         totalNotifications += 1
         totalSum += v
@@ -152,7 +148,6 @@ class IntMeterData: ProgressDataProvider {
     }
 
     func getLastValue() -> Int {
-        testNotificationTimeout()
         return lastValue
     }
 
@@ -180,14 +175,7 @@ class IntMeterData: ProgressDataProvider {
         if useLast {
             return getLastValue()
         } else {
-            testNotificationTimeout()
             return avgValue
-        }
-    }
-
-    private func testNotificationTimeout() {
-        if abs(lastNotification.timeIntervalSinceNow) > notificationTimeout {
-            queue(v: 0)
         }
     }
 

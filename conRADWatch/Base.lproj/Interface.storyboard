@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17034"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="conRADWatch" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="center" text="con RAD!" textAlignment="center" baselineAdjustment="alignCenters" id="RPd-vQ-Spg">
+                            <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                        </label>
+                        <label width="1" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="zqq-o8-OKh">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
+                        </label>
+                        <button width="1" height="30" alignment="left" verticalAlignment="bottom" title="Start" id="8D0-XY-swi">
+                            <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <connections>
+                                <action selector="startStopPushed" destination="AgC-eL-Hgc" id="9hO-W4-Xig"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="hrLabel" destination="zqq-o8-OKh" id="W8w-kY-ehd"/>
+                        <outlet property="startStop" destination="8D0-XY-swi" id="dXL-jY-SQY"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-170" y="-69"/>
+        </scene>
+    </scenes>
+</document>

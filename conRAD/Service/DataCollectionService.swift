@@ -77,7 +77,7 @@ class DataCollectionService {
     
         _ = HealthDataConnector.sharedInstance.initialize()
         
-        hrData = IntMeterData(useLastValue: true, bufferSize: 1)
+        hrData = IntMeterData(useLastValue: false, bufferSize: 2)
         hrConnector = HeartRateConnector(hrData: hrData)
         powerData = IntMeterData(useLastValue: false, bufferSize: DataCollectionService.POWER_BUFFER_SIZE)
         cadenceData = IntMeterData(useLastValue: false, bufferSize: DataCollectionService.CADENCE_BUFFER_SIZE)

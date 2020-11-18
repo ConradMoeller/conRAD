@@ -41,7 +41,6 @@ class HealthDataConnector {
     
     func observeHeartRateSamples(_ newHeartRate: ((Double) -> (Void))?) {
         let heartRateSampleType = HKObjectType.quantityType(forIdentifier: .heartRate)
-        
         if let observerQuery = observerQuery {
             healthStore?.stop(observerQuery)
         }
@@ -51,12 +50,10 @@ class HealthDataConnector {
                 print("Error: \(error.localizedDescription)")
                 return
             }
-            
             self.fetchLatestHeartRateSample { (sample) in
                 guard let sample = sample else {
                     return
                 }
-                
                 DispatchQueue.main.async {
                     let heartRate = sample.quantity.doubleValue(for: self.heartRateUnit)
                     newHeartRate?(heartRate)
@@ -74,7 +71,6 @@ class HealthDataConnector {
             completionHandler(nil)
             return
         }
-        
         let predicate = HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date(), options: .strictEndDate)
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
         let query = HKSampleQuery(sampleType: sampleType,
@@ -84,11 +80,9 @@ class HealthDataConnector {
                                     if let error = error {
                                         print("Error: \(error.localizedDescription)")
                                         return
-                                    }
-                                    
+                                    }                                    
                                     completionHandler(results?[0] as? HKQuantitySample)
         }
-        
         healthStore?.execute(query)
     }
 }
