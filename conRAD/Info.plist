@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthShareUsageDescription</key>
+	<key>NSHealthUpdateUsageDescription</key>
 	<string>conRAD uses health for heart rate measurement!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -70,6 +70,8 @@
 	<string>con RAD! needs BLE to connect to your external devices</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>con RAD! needs BLE to connect to your external devices</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>conRAD uses health for heart rate measurement!</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>con RAD! needs gps for tracking your training sessions</string>
 	<key>NSLocationUsageDescription</key>
